@@ -1,0 +1,25 @@
+{
+  "name": "culture-project",
+  "version": "1.0.0",
+  "description": "This is the culture project for CORGI",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monica22schmidt/Culture-Project.git"
+  },
+  "author": "CORGI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monica22schmidt/Culture-Project/issues"
+  },
+  "homepage": "https://github.com/monica22schmidt/Culture-Project#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.7"
+  }
+}
