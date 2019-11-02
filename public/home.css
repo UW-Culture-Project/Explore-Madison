@@ -1,0 +1,11 @@
+html, body {
+    height: 100vh;
+}
+
+.calendar {
+    height: 100%;
+}
+
+#logo {
+    font-size: 40px;
+}
