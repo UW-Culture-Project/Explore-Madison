@@ -11,6 +11,10 @@ app.get("/", function(req, res) {
   res.render("home");
 });
 
+app.get("/CreateEvent", function(req, res) {
+  res.render("CreateEvent");
+});
+
 app.listen(3000, function() {
   console.log("Server is listening.");
 });

@@ -4,6 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="google-signin-client_id" content=gapi.auth2.init()>
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -31,10 +33,10 @@
                       <a class="nav-link" href="/about">About</a>   <!--Link-->
                    </li>
                    <li class="nav-item btn-lg font-weight-bold">
-                      <a class="nav-link" href="/signup">Sign-Up</a>  <!--Active-->
+                      <a class="nav-link" href="/CreateEvent">Create Event</a>  <!--Active-->
                    </li>
                    <li class="nav-item btn-lg font-weight-bold">
-                      <a class="nav-link" href="/login">Login</a>   <!--Link-->  
+                      <div class="g-signin2" data-onsuccess="onSignIn"></div>   <!--Link-->  
                    </li>
                    <li class="nav-item btn-lg font-weight-bold">
                       <a class="nav-link" href="/login">Contact</a>   <!--Link-->  
