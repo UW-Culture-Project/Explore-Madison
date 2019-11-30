@@ -28,21 +28,24 @@ app.get("/events/new", function(req, res) {
 });
 
 app.post("/events", function(req, res) {
-  var name = req.body.name;
-  var image = req.body.image;
-  var description = req.body.description;
-  var location = req.body.location;
-  var eventDate = req.body.eventDate;
-  Event.create({name: name, image: image, description: description, location: location, eventDate: eventDate}, function(err, newlyCreated) {
+  Event.create(req.body.event, function(err, event) {
     if (err) {
       res.redirect("/events/new");
     } else {
+      // res.redirect("/events/show/" + event._id);
       res.redirect("/events");
     }
   });
 });
 
 app.get("/events/:id", function(req, res) {
+  Event.findById(req.params.id, function(err, event) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.render("events/show", {event: event});
+    }
+  });
 });
 
 app.listen(3000, function() {

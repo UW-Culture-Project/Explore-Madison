@@ -1,0 +1,20 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <p class="lead"><%= event.location %></p>
+    </div>
+    <div class="col-md-9">
+      <div class="thumbnail">
+        <img src="<%= event.image %>" class="img-fluid">
+        <div class="caption">
+          <h4 class="float-right"><%= event.image %></h4>
+          <p><%= event.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/footer") %>

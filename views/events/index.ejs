@@ -1,4 +1,4 @@
-<%- include("partials/header") %>
+<%- include("../partials/header") %>
 
 <% events.forEach(function(event) { %>
   <div class="row">
@@ -7,11 +7,11 @@
         <div class="card-body">
           <h5 class="card-title"><%= event.name %></h5>
           <p class="card-text"><%= event.description %>...</p>
-          <a href="#" class="btn btn-primary">See details</a>
+          <a href="/events/<%= event._id %>" class="btn btn-primary">See details</a>
         </div>
       </div>
     </div>
   </div>
 <% }); %>
 
-<%- include("partials/footer") %>
+<%- include("../partials/footer") %>
