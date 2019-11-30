@@ -10,14 +10,15 @@ app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  Event.find({}, function(err, events) {
-    if (err) {
-      console.log(err);
-    } else {
-      // res.render("events/index", {events: events});
-      res.render("home", {events: JSON.stringify(events)});
-    }
-  });
+  res.render("static/index");
+});
+
+app.get("/about", function(req, res) {
+  res.render("static/about");
+});
+
+app.get("/contact", function(req, res) {
+  res.render("static/contact");
 });
 
 app.get("/events", function(req, res) {
@@ -25,7 +26,7 @@ app.get("/events", function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render("events/index", {events: events});
+      res.render("events/index", {events: JSON.stringify(events)});
     }
   });
 });
