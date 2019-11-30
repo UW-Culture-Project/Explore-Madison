@@ -1,0 +1,24 @@
+<%- include("../partials/header") %>
+
+<div class="container my-5">
+  <a href="/events">
+    <i class="fas fa-long-arrow-alt-left mr-2"></i>
+    Back to events
+  </a>
+  <div class="row my-4">
+    <div class="col-md-3">
+      <p class="lead"><%= event.location %></p>
+    </div>
+    <div class="col-md-9">
+      <div class="thumbnail">
+        <img src="<%= event.image %>" class="img-fluid">
+        <div class="caption">
+          <h4><%= event.name %></h4>
+          <p><%= event.description %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("../partials/footer") %>

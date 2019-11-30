@@ -20,7 +20,7 @@
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
     "body-parser": "^1.19.0",
-    "ejs": "^2.7.1",
+    "ejs": "^3.0.1",
     "express": "^4.17.1",
     "mongoose": "^5.7.7",
     "nodemon": "^1.19.4"
