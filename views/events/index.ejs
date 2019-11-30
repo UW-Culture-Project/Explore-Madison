@@ -1,17 +1,19 @@
 <%- include("../partials/header") %>
 
-<% events.forEach(function(event) { %>
-  <div class="row">
-    <div class="col-12">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"><%= event.name %></h5>
-          <p class="card-text"><%= event.description %>...</p>
-          <a href="/events/<%= event._id %>" class="btn btn-primary">See details</a>
+<div class="container my-5">
+  <% events.forEach(function(event) { %>
+    <div class="row">
+      <div class="col-12">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= event.name %></h5>
+            <p class="card-text"><%= event.description %>...</p>
+            <a href="/events/<%= event._id %>" class="btn btn-primary">See details</a>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<% }); %>
+  <% }); %>
+</div>
 
 <%- include("../partials/footer") %>
