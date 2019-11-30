@@ -1,29 +1,18 @@
-var express = require("express");
-var app = express();
-var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
+var express = require("express"),
+    app = express(),
+    bodyParser = require("body-parser"),
+    mongoose = require("mongoose"),
+    Event = require("./models/event");
 
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb://localhost/culture_project");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
-
-// Schema setup
-var eventchema = new mongoose.Schema({
-  name: String,
-  image: String,
-  description: String,
-  location: String,
-  eventDate: Date
-});
-
-var Event = mongoose.model("Event", eventSchema);
 
 app.get("/", function(req, res) {
   res.render("home");
 });
 
-<<<<<<< HEAD
 app.get("/events", function(req, res) {
   Event.find({}, function(err, events) {
     if (err) {
