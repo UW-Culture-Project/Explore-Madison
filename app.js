@@ -1,12 +1,11 @@
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
-// var request = require("request");
 var mongoose = require("mongoose");
 
 mongoose.connect("mongodb://localhost/yelp_camp");
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 
 // Schema setup
@@ -24,6 +23,7 @@ app.get("/", function(req, res) {
   res.render("home");
 });
 
+<<<<<<< HEAD
 app.get("/events", function(req, res) {
   Event.find({}, function(err, events) {
     if (err) {
@@ -54,7 +54,6 @@ app.post("/events", function(req, res) {
 });
 
 app.get("/events/:id", function(req, res) {
-  res.send("");
 });
 
 app.listen(3000, function() {
