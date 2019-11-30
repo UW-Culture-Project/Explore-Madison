@@ -10,7 +10,14 @@ app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  res.render("home");
+  Event.find({}, function(err, events) {
+    if (err) {
+      console.log(err);
+    } else {
+      // res.render("events/index", {events: events});
+      res.render("home", {events: JSON.stringify(events)});
+    }
+  });
 });
 
 app.get("/events", function(req, res) {
