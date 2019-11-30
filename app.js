@@ -18,13 +18,13 @@ app.get("/events", function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render("events", {events: events});
+      res.render("events/index", {events: events});
     }
   });
 });
 
 app.get("/events/new", function(req, res) {
-  res.render("new");
+  res.render("events/new");
 });
 
 app.post("/events", function(req, res) {
