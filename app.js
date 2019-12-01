@@ -10,16 +10,15 @@ app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  // res.render("static/index");
   res.sendFile(__dirname + "/public/static/index.html");
 });
 
 app.get("/about", function(req, res) {
-  res.render("static/about");
+  res.sendFile(__dirname + "/public/static/about.html");
 });
 
 app.get("/contact", function(req, res) {
-  res.render("static/contact");
+  res.sendFile(__dirname + "/public/static/contact.html");
 });
 
 app.get("/events", function(req, res) {
