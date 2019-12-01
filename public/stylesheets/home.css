@@ -14,43 +14,58 @@ body {
 }
 
 #landing-header {
-  padding-top: 40vh;
+  margin-top: 40vh;
   position: relative;
   text-align: center;
   z-index: 1;
 }
 
+#landing-header .custom-jumbotron {
+  margin: 10px auto;
+  background-color: rgba(100, 100, 100, 0.5);
+}
+
 #landing-header h1 {
-  color: #fff;
   margin: 0.5em auto;
 }
 
-.entryLink {
-  color: #fff;
+/*a.entryLink {
+  font-size: 25px;
+  font-weight: bold;
+}*/
+
+h1 a.entryLink {
+  color: yellow;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+/*.entryLink {
+  color: yellow;
   opacity: 1;
 }
 
 .entryLink:hover {
-  color: #fff;
+  color: yellow;
   opacity: 0.8;
   text-decoration: none;
 }
 
 .entryLink:focus {
-  color: #fff;
+  color: yellow;
   opacity: 0.8;
   outline: 0;
   text-decoration: none;
 }
 
 .entryLink:visited {
-  color: #fff;
+  color: yellow;
   opacity: 1;
   text-decoration: none;
-}
+}*/
 
 /* background slide show */
-.slideshow { 
+.slideshow {
   height: 100%;
   left: 0;
   list-style: none;
@@ -62,8 +77,8 @@ body {
   z-index: 0;
 }
 
-.slideshow li { 
-  animation: imageAnimation 50s linear 2.5s infinite; 
+.slideshow li {
+  animation: imageAnimation 50s linear 2.5s infinite;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -77,30 +92,30 @@ body {
   z-index: 0;
 }
 
-.slideshow li:nth-child(1) { 
-  background-image: url(../images/MadisonNight.jpg) 
+.slideshow li:nth-child(1) {
+  background-image: url(../images/MadisonNight.jpg)
 }
-.slideshow li:nth-child(2) { 
+.slideshow li:nth-child(2) {
   background-image: url(../images/BascomHall-UWMadison.jpg);
-  animation-delay: 10s; 
+  animation-delay: 10s;
 }
-.slideshow li:nth-child(3) { 
+.slideshow li:nth-child(3) {
   background-image: url(../images/MadisonSkyline.jpg);
-  animation-delay: 20s; 
+  animation-delay: 20s;
 }
-.slideshow li:nth-child(4) { 
+.slideshow li:nth-child(4) {
   background-image: url(../images/Terrace_night.jpg);
-  animation-delay: 30s; 
+  animation-delay: 30s;
 }
-.slideshow li:nth-child(5) { 
+.slideshow li:nth-child(5) {
   background-image: url(../images/CampRandall.jpg);
-  animation-delay: 40s; 
+  animation-delay: 40s;
 }
 
-@keyframes imageAnimation { 
-  0%, 40% { 
+@keyframes imageAnimation {
+  0%, 40% {
     animation-timing-function: ease-in;
-    opacity: 0; 
+    opacity: 0;
     transform: scale(1);
   }
   10% {
