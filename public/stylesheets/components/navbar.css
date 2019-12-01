@@ -1,0 +1,9 @@
+.navbar-expand-lg .navbar-nav .nav-link {
+  padding: 0;
+  margin-left: 25px;
+}
+
+a.nav-link {
+  padding: 0;
+  margin: 0;
+}

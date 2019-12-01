@@ -10,7 +10,8 @@ app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
 
 app.get("/", function(req, res) {
-  res.render("static/index");
+  // res.render("static/index");
+  res.sendFile(__dirname + "/public/static/index.html");
 });
 
 app.get("/about", function(req, res) {
