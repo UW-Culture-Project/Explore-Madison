@@ -19,7 +19,7 @@ html, body {
   padding: 10px;
 }
 
-#landing-header h1 a.entryLink {
+#landing-header h1 {
   color: yellow;
   font-size: 50px;
   font-weight: bold;
