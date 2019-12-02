@@ -3,14 +3,11 @@ html, body {
   padding: 0;
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
   font-size: 14px;
+  background-color: #000;
 }
 
 #logo {
   font-size: 40px;
-}
-
-body {
-  background-color: #000;
 }
 
 #landing-header {
@@ -18,51 +15,15 @@ body {
   position: relative;
   text-align: center;
   z-index: 1;
-}
-
-#landing-header .custom-jumbotron {
-  margin: 10px auto;
   background-color: rgba(100, 100, 100, 0.5);
+  padding: 10px;
 }
 
 #landing-header h1 {
-  margin: 0.5em auto;
-}
-
-/*a.entryLink {
-  font-size: 25px;
-  font-weight: bold;
-}*/
-
-h1 a.entryLink {
   color: yellow;
   font-size: 50px;
   font-weight: bold;
 }
-
-/*.entryLink {
-  color: yellow;
-  opacity: 1;
-}
-
-.entryLink:hover {
-  color: yellow;
-  opacity: 0.8;
-  text-decoration: none;
-}
-
-.entryLink:focus {
-  color: yellow;
-  opacity: 0.8;
-  outline: 0;
-  text-decoration: none;
-}
-
-.entryLink:visited {
-  color: yellow;
-  opacity: 1;
-  text-decoration: none;
-}*/
 
 /* background slide show */
 .slideshow {

@@ -3,10 +3,13 @@ var mongoose = require("mongoose");
 // Schema setup
 var eventSchema = new mongoose.Schema({
   name: String,
-  image: String,
+  image: {type: String, default: "https://via.placeholder.com/150"},
   description: String,
-  location: String
-  // eventDate: Date
+  location: String,
+  startDate: Date,
+  endDate: Date,
+  numberPeopleInterested: {type: Number, default: 0},
+  numberPeopleGoing: {type: Number, default: 0}
 });
 
 var Event = mongoose.model("Event", eventSchema);
