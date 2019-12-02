@@ -15,12 +15,12 @@ html, body {
   position: relative;
   text-align: center;
   z-index: 1;
-  background-color: rgba(100, 100, 100, 0.5);
+  background-color: rgba(88, 107, 115, 0.5);
   padding: 10px;
 }
 
 #landing-header h1 {
-  color: yellow;
+  color: rgba(230,140,132);
   font-size: 50px;
   font-weight: bold;
 }
