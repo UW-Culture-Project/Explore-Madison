@@ -1,30 +1,64 @@
-<%- include("../partials/header") %>
+<!doctype html>
+<html lang="en">
 
-<div class="container my-5">
-  <div class="row">
-    <div class="col-lg-6 offset-lg-3">
-      <h1 class="text-center font-italic">Suggest a new event</h1>
-      <form action="/events" method="POST" class="my-4">
-        <div class="form-group">
-          <label for="eventName">Name</label>
-          <input type="text" class="form-control" id="eventName" name="event[name]">
-        </div>
-        <div class="form-group">
-          <label for="eventImage">Image</label>
-          <input type="text" class="form-control" id="eventImage" name="event[image]">
-        </div>
-        <div class="form-group">
-          <label for="eventDescription">Description</label>
-          <input type="text" class="form-control" id="eventDescription" name="event[description]">
-        </div>
-        <div class="form-group">
-          <label for="eventLocation">Location</label>
-          <input type="text" class="form-control" id="eventLocation" name="event[location]">
-        </div>
-        <button type="submit" class="btn btn-primary btn-block">Submit</button>
-      </form>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.css">
+  <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/list@4.3.0/main.min.css">
+
+  <link rel="stylesheet" href="/stylesheets/app.css">
+  <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
+
+  <script src="https://kit.fontawesome.com/92992f5a3f.js" crossorigin="anonymous"></script>
+
+  <title>Explore Madison!</title>
+</head>
+<body>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <h1 class="text-center font-italic">Suggest a new event</h1>
+        <form action="/events" method="POST" class="my-4" autocomplete="off">
+          <div class="form-group">
+            <label for="eventStartDate">Start date</label>
+            <input type="text" class="form-control" id="eventStartDate" name="event[startDate]">
+          </div>
+          <div class="form-group">
+            <label for="eventEndDate">End date</label>
+            <input type="text" class="form-control" id="eventEndDate" name="event[endDate]">
+          </div>
+          <div class="form-group">
+            <label for="eventName">Name</label>
+            <input type="text" class="form-control" id="eventName" name="event[name]">
+          </div>
+          <div class="form-group">
+            <label for="eventImage">Image</label>
+            <input type="text" class="form-control" id="eventImage" name="event[image]">
+          </div>
+          <div class="form-group">
+            <label for="eventDescription">Description</label>
+            <input type="text" class="form-control" id="eventDescription" name="event[description]">
+          </div>
+          <div class="form-group">
+            <label for="eventLocation">Location</label>
+            <input type="text" class="form-control" id="eventLocation" name="event[location]">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+
+  <script src="https://unpkg.com/js-datepicker"></script>
+  <script>
+    var pickStartDate = datepicker('#eventStartDate');
+    var pickEndDate = datepicker('#eventEndDate');
+  </script>
 
 <%- include("../partials/footer") %>

@@ -5,11 +5,11 @@ var eventSchema = new mongoose.Schema({
   name: String,
   image: {type: String, default: "https://via.placeholder.com/150"},
   description: String,
-  location: String
-  // startDate: Date,
-  // endDate: Date,
-  // numberPeopleInterested: {type: Number, default: 0},
-  // numberPeopleGoing: {type: Number, default: 0}
+  location: String,
+  startDate: Date,
+  endDate: Date,
+  numberPeopleInterested: {type: Number, default: 0},
+  numberPeopleGoing: {type: Number, default: 0}
 });
 
 var Event = mongoose.model("Event", eventSchema);
