@@ -24,15 +24,7 @@
     <div class="row">
       <div class="col-lg-6 offset-lg-3">
         <h1 class="text-center font-italic">Suggest a new event</h1>
-        <form action="/events" method="POST" class="my-4" autocomplete="off">
-          <div class="form-group">
-            <label for="eventStartDate">Start date</label>
-            <input type="text" class="form-control" id="eventStartDate" name="event[startDate]">
-          </div>
-          <div class="form-group">
-            <label for="eventEndDate">End date</label>
-            <input type="text" class="form-control" id="eventEndDate" name="event[endDate]">
-          </div>
+        <form id="suggestEventForm" action="/events" method="POST" class="my-4" autocomplete="off">
           <div class="form-group">
             <label for="eventName">Name</label>
             <input type="text" class="form-control" id="eventName" name="event[name]">
@@ -49,16 +41,89 @@
             <label for="eventLocation">Location</label>
             <input type="text" class="form-control" id="eventLocation" name="event[location]">
           </div>
+          <div class="form-group">
+            <label for="eventStartDate">Start date</label>
+            <input type="text" class="form-control" id="eventStartDate" name="event[startDate]">
+          </div>
+          <div class="form-group">
+            <label for="eventEndDate">End date</label>
+            <input type="text" class="form-control" id="eventEndDate" name="event[endDate]">
+          </div>
           <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </form>
       </div>
     </div>
   </div>
 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/jquery/jquery.js"></script>
   <script src="https://unpkg.com/js-datepicker"></script>
   <script>
-    var pickStartDate = datepicker('#eventStartDate');
-    var pickEndDate = datepicker('#eventEndDate');
+    $(document).ready(function () {
+      var startDateLocal;
+      var endDateLocal;
+      var pickStartDate = datepicker('#eventStartDate',
+        {
+          startDate: new Date(),
+          showAllDates: true ,
+          id: 1,
+          onSelect: (instance, date) => {
+            // console.log(date.toLocaleDateString());
+          },
+          formatter: (input, date, instance) => {
+            const value = date.toLocaleDateString();
+            // const value = date.toLocalTime();
+            input.value = value;
+            // startDateLocal =
+          }
+        });
+      var pickEndDate = datepicker('#eventEndDate',
+        {
+          id: 1,
+          onSelect: (instance, date) => {
+            // console.log(date.toLocaleDateString());
+          },
+          formatter: (input, date, instance) => {
+            const value = date.toLocaleDateString();
+            // const value = date.toLocalTime();
+            input.value = value;
+          }
+        });
+
+      // var startComponents = $('#eventStartDate').val().split('/');
+      // var startDateObj = new Date(startComponents[2], startComponents[0] - 1, startComponents[1]);
+      // var endComponents = $('#eventEndDate').val().split('/');
+      // var endDateObj = new Date(endComponents[2], endComponents[0] - 1, endComponents[1]);
+
+      // $("#suggestEventForm").submit(function(e) {
+      //   e.preventDefault(); //prevent default action
+      //   var dataObject = {
+      //     name: $(this).children('#eventName').val(),
+      //     image: $(this).children('#eventImage').val(),
+      //     description: $(this).children('#eventDescription').val(),
+      //     location: $(this).children('#eventLocation').val(),
+      //     startDate: startDateObj,
+      //     endDate: endDateObj
+      //   };
+      //   $.ajax({
+      //     type: "POST",
+      //     url: "/events",
+      //     dataType: "json",
+      //     data: JSON.stringify(dataObject),
+      //     success: function(data) {
+      //       alert('Thanks for suggesting events! Our team will approve it if the content is appropriate.');
+      //     },
+      //     error: function(request, status, error) {
+      //       if (error) {
+      //         console.log(request);
+      //         console.log(status);
+      //         console.log(error);
+      //       }
+      //       alert('Sorry, error has happened. Please fill the form again later.')
+      //     }
+      //   });
+      // });
+    });
   </script>
 
 <%- include("../partials/footer") %>

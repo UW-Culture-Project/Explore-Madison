@@ -8,6 +8,7 @@ mongoose.connect("mongodb://localhost/culture_project");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public'));
 app.set("view engine", "ejs");
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/static/index.html");
@@ -36,6 +37,7 @@ app.get("/events/new", function(req, res) {
 });
 
 app.post("/events", function(req, res) {
+  console.log(req.body.event);
   Event.create(req.body.event, function(err, event) {
     if (err) {
       res.redirect("/events/new");

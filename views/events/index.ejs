@@ -51,7 +51,8 @@
           id: event._id,
           title: event.name,
           url: "/events/" + event._id,
-          start: '2019-12-25'
+          start: event.startDate,
+          end: event.endDate
         };
         calendar.addEvent(newEvent);
       });
