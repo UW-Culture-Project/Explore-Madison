@@ -136,7 +136,6 @@ app.get("/logout", function(req, res){
   res.redirect("/events");
 });
 
-
 // Middleware function for checking if a user is logged in
 function isLoggedIn(req, res, next){
   if(req.isAuthenticated()){
