@@ -130,6 +130,11 @@ app.post("/login", passport.authenticate("local",
    failureRedirect: "login"
 }), function(req, res){
 });
+// Logout route
+app.get("/logout", function(req, res){
+  req.logout();
+  res.redirect("/events");
+});
 
 
 // Middleware function for checking if a user is logged in
