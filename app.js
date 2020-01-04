@@ -1,18 +1,22 @@
-var express       = require("express"),
-    app           = express(),
-    bodyParser    = require("body-parser"),
-    mongoose      = require("mongoose"),
-    passport      = require("passport"),
-    LocalStrategy = require("passport-local"),
+var express          = require("express"),
+    app              = express(),
+    bodyParser       = require("body-parser"),
+    methodOverride   = require("method-override"),
+    expressSanitizer = require("express-sanitizer"),
+    mongoose         = require("mongoose"),
+    passport         = require("passport"),
+    LocalStrategy    = require("passport-local"),
 
     // Models
-    Event         = require("./models/event"),
-    User          = require("./models/user");
+    Event            = require("./models/event"),
+    User             = require("./models/user");
 
 mongoose.connect("mongodb://localhost/culture_project");
+app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + '/public')); // __dirname is the directory that app.js is in
-app.set("view engine", "ejs");
+app.use(expressSanitizer());
+app.use(methodOverride("_method"));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 
 // Passport Configuration for authentication
@@ -95,11 +99,23 @@ app.get("/events/:id", function(req, res) {
 // AUTH Routes
 //==========================================================
 
-// SHOW registration form
+// Show registration form
 app.get("/register", function(req, res){
   res.render("register");
 });
-
+// Handle sign up logic
+app.post("/register", function(req, res){
+  var newUser = new User({username: req.body.username}) // Takes the username from the form. Don't add password
+  User.register(newUser, req.body.password, function(err, user){
+      if(err){
+          console.log(err);
+          return res.render("register");
+      }
+      passport.authenticate("local")(req, res, function(){
+          res.redirect("/events");
+      });
+  });  // Provided by passportLocalMongoose. 
+});
 
 
 
