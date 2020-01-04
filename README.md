@@ -19,13 +19,13 @@ Never miss out on any opportunities to meet new people and try awesome things ag
 
 If you're interested in joining our team regardless of your level of experience, please email me (Kenny) at klmui@wisc.edu. I will try to respond within 24 hours!
 
-    | Front-end      | Back-end     | 
-    | :---           |    :----:    |
-    | HTML           |    Node.js   | 
-    | CSS            | Express.js   |  
-    | JavaScript     | MongoDB      | 
-    | BootStrap      |              | 
-    | jQuery         |              | 
+| Front-end      | Back-end     | 
+| :---           |    :----:    |
+| HTML           |    Node.js   | 
+| CSS            | Express.js   |  
+| JavaScript     | MongoDB      | 
+| BootStrap      |              | 
+| jQuery         |              | 
 
 - [x] Brainstorm
 - [x] Get the calendar up and running
