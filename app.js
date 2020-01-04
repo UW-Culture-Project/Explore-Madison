@@ -2,6 +2,8 @@ var express = require("express"),
     app = express(),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
+    passport  = require("passport"),
+    LocalStrategy = require("passport-local"),
     Event = require("./models/event");
 
 mongoose.connect("mongodb://localhost/culture_project");
