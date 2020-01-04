@@ -113,12 +113,13 @@ app.post("/register", function(req, res){
           console.log(err);
           return res.render("register");
       }
+      // Provided by passportLocalMongoose
       passport.authenticate("local")(req, res, function(){
           res.redirect("/events");
       });
-  });  // Provided by passportLocalMongoose. 
+  });   
 });
-
+// Show login Form
 
 
 
