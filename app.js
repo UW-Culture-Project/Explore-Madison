@@ -6,7 +6,8 @@ var express       = require("express"),
     LocalStrategy = require("passport-local"),
 
     // Models
-    Event = require("./models/event"); 
+    Event         = require("./models/event"),
+    User          = require("./models/user");
 
 mongoose.connect("mongodb://localhost/culture_project");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -47,8 +48,10 @@ app.get("/contact", function(req, res) {
   res.sendFile(__dirname + "/public/static/contact.html");
 });
 
+//==========================================================
+// Event Routes
+//==========================================================
 
-// Start of events ==========================================================
 // INDEX ROUTE - Shows all events
 app.get("/events", function(req, res) {
   Event.find({}, function(err, events) {
@@ -88,7 +91,24 @@ app.get("/events/:id", function(req, res) {
   });
 });
 
-// End of events ============================================================
+//==========================================================
+// AUTH Routes
+//==========================================================
+
+// SHOW registration form
+
+
+
+
+
+
+// Middleware function for checking if a user is logged in
+function isLoggedIn(req, res, next){
+  if(req.isAuthenticated()){
+    return next();
+  }
+  res.redirect("/login");
+}
 
 app.listen(3000, function() {
   console.log("Server is listening.");
