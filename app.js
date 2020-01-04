@@ -74,6 +74,8 @@ app.get("/events/new", function(req, res) {
 
 // CREATE ROUTE
 app.post("/events", function(req, res) {
+  // Sanitize the event so no Script tags can be run
+  req.body.event.body = req.sanitize(req.body.event.body);
   console.log(req.body.event);
   Event.create(req.body.event, function(err, event) {
     if (err) {

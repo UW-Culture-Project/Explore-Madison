@@ -14,7 +14,8 @@
         <img src="<%= event.image %>" class="img-fluid">
         <div class="caption">
           <h4><%= event.name %></h4>
-          <p><%= event.description %></p>
+          <!-- There is a dash so it users can enter HTML  -->
+          <p><%- event.description %></p>
         </div>
       </div>
     </div>
