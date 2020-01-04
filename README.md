@@ -45,4 +45,3 @@ If you're interested in joining our team regardless of your level of experience,
 - [ ] Group events by category/organization
 - [ ] Only allow admins to approve events and remove comments
 - [ ] Deploy!
-
