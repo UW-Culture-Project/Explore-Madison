@@ -96,7 +96,9 @@ app.get("/events/:id", function(req, res) {
 //==========================================================
 
 // SHOW registration form
-
+app.get("/register", function(req, res){
+  res.render("register");
+});
 
 
 
