@@ -1,11 +1,26 @@
 <%- include('partials/header') %>
 
-<h1>login</h1>
-<form action="/login" method="POST">
-    <input type="text" name="username" placeholder="username">
-    <input type="password" name="password" placeholder="password">
-    <!-- Could also do <button>Submit!</button> -->
-    <input type="Submit" value="Login!">
-</form>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-12 text-center">
+            <h1>Sign in to Explore Madison</h1>
+        </div>
+        <div class="col-8 offset-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
+                </div>
+                <div class="text-center">
+                    <input type="Submit" value="Sign in" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <%- include('partials/footer') %>

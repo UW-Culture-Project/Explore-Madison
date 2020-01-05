@@ -10,7 +10,7 @@ var express = require("express"),
 //==========================================================
 
 // INDEX ROUTE - Shows all events
-router.get("/events", function (req, res) {
+router.get("/", function (req, res) {
     Event.find({}, function (err, events) {
         if (err) {
             console.log(err);
@@ -23,12 +23,12 @@ router.get("/events", function (req, res) {
 });
 
 // SHOW - create event page only if the user is logged in
-router.get("/events/new", isLoggedIn, function (req, res) {
+router.get("/new", isLoggedIn, function (req, res) {
     res.render("events/new");
 });
 
 // CREATE ROUTE - only create a new event if the user is logged in
-router.post("/events", isLoggedIn, function (req, res) {
+router.post("/", isLoggedIn, function (req, res) {
 
     // Sanitize the event so no Script tags can be run
     req.body.event.body = req.sanitize(req.body.event.body);
@@ -43,7 +43,7 @@ router.post("/events", isLoggedIn, function (req, res) {
 });
 
 // SHOW individual event
-router.get("/events/:id", function (req, res) {
+router.get("/:id", function (req, res) {
     Event.findById(req.params.id, function (err, event) {
         if (err) {
             console.log(err);
