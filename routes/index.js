@@ -1,7 +1,9 @@
-var express  = require("express");
-    router   = express.Router();
+var express  = require("express"),
+    router   = express.Router(),
     passport = require("passport"),
-    User     = require("../models/user")
+    
+    // Models
+    User     = require("../models/user"),
     path     = require("path");
 
 // SHOW index page
