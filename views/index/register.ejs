@@ -1,12 +1,12 @@
-<%- include('partials/header') %>
+<%- include('../partials/header') %>
 
 <div class="container my-5">
     <div class="row">
         <div class="col-12 text-center">
-            <h1>Sign in to Explore Madison</h1>
+            <h3>Create a new account</h3>
         </div>
         <div class="col-8 offset-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-            <form action="/login" method="POST">
+            <form action="/register" method="POST" class="authenticate-form">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" name="username" id="username" placeholder="Enter username">
@@ -15,12 +15,15 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
                 </div>
-                <div class="text-center">
-                    <input type="Submit" value="Sign in" class="btn btn-primary">
-                </div>
+                <input type="Submit" value="Sign up" class="btn btn-primary btn-block">
             </form>
+        </div>
+        <div class="col-8 offset-2 col-md-6 offset-md-3 col-lg-4 offset-lg-4 text-center">
+            <div class="other-account-action">
+                <p>Already have an account?</p>
+                <a href="/login">Sign in</a>
+            </div>
         </div>
     </div>
 </div>
-
-<%- include('partials/footer') %>
+<%- include('../partials/footer') %>

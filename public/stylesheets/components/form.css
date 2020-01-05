@@ -1,0 +1,19 @@
+.authenticate-form {
+  background: white;
+  border: 1px solid #D8DEE2;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 15px 15px 20px 15px;
+}
+
+.other-account-action {
+  background: white;
+  border: 1px solid #D8DEE2;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 15px 15px 0 15px;
+}
+
+.other-account-action p {
+  display: inline-block;
+}
