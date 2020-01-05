@@ -1,5 +1,7 @@
 var express = require("express"),
     router  = express.Router(),
+
+    // Models
     Event   = require("../models/event");
 
 
@@ -27,6 +29,7 @@ router.get("/events/new", isLoggedIn, function (req, res) {
 
 // CREATE ROUTE - only create a new event if the user is logged in
 router.post("/events", isLoggedIn, function (req, res) {
+
     // Sanitize the event so no Script tags can be run
     req.body.event.body = req.sanitize(req.body.event.body);
     console.log(req.body.event);

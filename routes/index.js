@@ -1,21 +1,24 @@
-var express  = require("express");
-    router   = express.Router();
+var express  = require("express"),
+    router   = express.Router(),
     passport = require("passport"),
-    User     = require("../models/user");
+    
+    // Models
+    User     = require("../models/user"),
+    path     = require("path");
 
 // SHOW index page
 router.get("/", function (req, res) {
-    res.sendFile(__dirname + "/public/static/index.html");
+    res.sendFile(path.join(__dirname, '../public/static/index.html'));
 });
 
 // SHOW about page
 router.get("/about", function (req, res) {
-    res.sendFile(__dirname + "/public/static/about.html");
+    res.sendFile(path.join(__dirname, '../public/static/about.html'));
 });
 
 // SHOW contact page
 router.get("/contact", function (req, res) {
-    res.sendFile(__dirname + "/public/static/contact.html");
+    res.sendFile(path.join(__dirname, '../public/static/contact.html'));
 });
 
 //==========================================================
