@@ -30,17 +30,21 @@
         // customize the button names,
         // otherwise they'd all just say "list"
         views: {
-            listDay:   { buttonText: 'list day' },
-            listWeek:  { buttonText: 'list week' },
-            listMonth: { buttonText: 'list month' }
+          listDay:   { buttonText: 'list day' },
+          listWeek:  { buttonText: 'list week' },
+          listMonth: { buttonText: 'list month' }
         },
 
         header: {
-            left: 'title',
-            center: '',
-            right: 'listDay,listWeek,listMonth'
+          left: 'title',
+          center: '',
+          right: 'listDay,listWeek,listMonth'
         },
-        events: []
+        events: [],
+        eventTimeFormat: {
+          hour: '2-digit',
+          minute: '2-digit'
+        }
       });
 
       var list = <%- events %>;
