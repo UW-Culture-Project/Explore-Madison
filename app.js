@@ -41,51 +41,6 @@ app.use(function(req, res, next){
   next();
 });
 
-//==========================================================
-// Event Routes
-//==========================================================
-
-// INDEX ROUTE - Shows all events
-app.get("/events", function(req, res) {
-  Event.find({}, function(err, events) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("events/index", {events: JSON.stringify(events)});
-    }
-  });
-});
-
-// SHOW
-app.get("/events/new", function(req, res) {
-  res.render("events/new");
-});
-
-// CREATE ROUTE
-app.post("/events", function(req, res) {
-  // Sanitize the event so no Script tags can be run
-  req.body.event.body = req.sanitize(req.body.event.body);
-  console.log(req.body.event);
-  Event.create(req.body.event, function(err, event) {
-    if (err) {
-      res.redirect("/events/new");
-    } else {
-      res.redirect("/events");
-    }
-  });
-});
-
-// SHOW individual event
-app.get("/events/:id", function(req, res) {
-  Event.findById(req.params.id, function(err, event) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.render("events/show", {event: event});
-    }
-  });
-});
-
 // Use route files
 app.use(indexRoutes);
 app.use(eventRoutes);
