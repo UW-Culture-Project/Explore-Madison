@@ -23,12 +23,12 @@ router.get("/contact", function (req, res) {
 //==========================================================
 
 // Show registration form
-app.get("/register", function (req, res) {
+router.get("/register", function (req, res) {
     res.render("register");
 });
 
 // Handle sign up logic
-app.post("/register", function (req, res) {
+router.post("/register", function (req, res) {
     var newUser = new User({
         username: req.body.username
     }) // Takes the username from the form. Don't add password
@@ -45,18 +45,18 @@ app.post("/register", function (req, res) {
 });
 
 // Show login Form
-app.get("/login", function (req, res) {
+router.get("/login", function (req, res) {
     res.render("login");
 });
 
 // Handling login logic
-app.post("/login", passport.authenticate("local", {
+router.post("/login", passport.authenticate("local", {
     successRedirect: "/events",
     failureRedirect: "login"
 }), function (req, res) {});
 
 // Logout route
-app.get("/logout", function (req, res) {
+router.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/events");
 });
