@@ -40,21 +40,11 @@
             center: '',
             right: 'listDay,listWeek,listMonth'
         },
-
         events: []
       });
 
       var list = <%- events %>;
       list.forEach(function(event) {
-
-        // var sDate = new Date(event.startDate).toLocaleDateString().split("/");
-        // var sTime = new Date(event.startDate).toLocaleTimeString('en-GB').split(":");
-        // var sObj = new Date(sDate[2], sDate[0] - 1, sDate[1], sTime[0], sTime[1], sTime[2]);
-        // console.log(sObj);
-        // var eDate = new Date(event.endDate).toLocaleDateString().split("/");
-        // var eTime = new Date(event.endDate).toLocaleTimeString('en-GB').split(":");
-        // var eObj = new Date(eDate[2], eDate[0] - 1, eDate[1], eTime[0], eTime[1], eTime[2]);
-        // console.log(eObj);
         var newEvent = {
           id: event._id,
           title: event.name,
