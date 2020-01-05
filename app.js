@@ -9,7 +9,11 @@ var express          = require("express"),
 
     // Models
     Event            = require("./models/event"),
-    User             = require("./models/user");
+    User             = require("./models/user"),
+
+    // Routes
+    eventRoutes      = require("./routes/events"),
+    indexRoutes      = require("./routes/index");
 
 mongoose.connect("mongodb://localhost/culture_project");
 app.set("view engine", "ejs");
@@ -144,6 +148,7 @@ function isLoggedIn(req, res, next){
   res.redirect("/login");
 }
 
+// Starts server at port 3000
 app.listen(3000, function() {
   console.log("Server is listening.");
 });
