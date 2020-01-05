@@ -12,15 +12,13 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.css">
   <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/list@4.3.0/main.min.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/flatpickr.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.2.3/themes/dark.css">
   <link rel="stylesheet" href="/stylesheets/app.css">
-  <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
-
-  <script src="https://kit.fontawesome.com/92992f5a3f.js" crossorigin="anonymous"></script>
-
-  <link rel="icon" type="image/gif/png/jpg" href="../images/TitleIcon.jpg">
   <title>Explore Madison!</title>
 </head>
 <body>
+  <%- include("../partials/navbar") %>
   <div class="container my-5">
     <a href="/events">
       <i class="fas fa-long-arrow-alt-left mr-2"></i>
@@ -30,6 +28,20 @@
       <div class="col-lg-6 offset-lg-3">
         <h1 class="text-center font-italic">Share a new event</h1>
         <form id="suggestEventForm" action="/events" method="POST" class="my-4" autocomplete="off">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="eventStartDate">Start date / time</label>
+                <input type="text" class="form-control" id="eventStartDate" name="event[startDate]">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="eventEndDate">End date / time</label>
+                <input type="text" class="form-control" id="eventEndDate" name="event[endDate]">
+              </div>
+            </div>
+          </div>
           <div class="form-group">
             <label for="eventName">Name</label>
             <input type="text" class="form-control" id="eventName" name="event[name]">
@@ -43,14 +55,6 @@
             <input type="text" class="form-control" id="eventLocation" name="event[location]">
           </div>
           <div class="form-group">
-            <label for="eventStartDate">Start date</label>
-            <input type="text" class="form-control" id="eventStartDate" name="event[startDate]">
-          </div>
-          <div class="form-group">
-            <label for="eventEndDate">End date</label>
-            <input type="text" class="form-control" id="eventEndDate" name="event[endDate]">
-          </div>
-          <div class="form-group">
             <label for="eventDescription">Description</label>
             <textarea name="event[description]" class="form-control" id="eventDescription" rows="5"></textarea>
           </div>
@@ -61,30 +65,16 @@
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="/jquery/jquery.js"></script>
-  <script src="https://unpkg.com/js-datepicker"></script>
   <script>
     $(document).ready(function () {
-      var startDateLocal;
-      var endDateLocal;
-      var pickStartDate = datepicker('#eventStartDate',
-        {
-          startDate: new Date(),
-          showAllDates: true ,
-          id: 1,
-          formatter: (input, date, instance) => {
-            const value = date.toLocaleDateString();
-            input.value = value;
-          }
-        });
-      var pickEndDate = datepicker('#eventEndDate',
-        {
-          id: 1,
-          formatter: (input, date, instance) => {
-            const value = date.toLocaleDateString();
-            input.value = value;
-          }
-        });
+      $("#eventStartDate").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i"
+      });
+      $("#eventEndDate").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i"
+      });
     });
   </script>
 
