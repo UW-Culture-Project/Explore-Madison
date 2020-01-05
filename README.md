@@ -48,6 +48,8 @@ If you're interested in joining our team regardless of your level of experience,
 - [ ] Implement MapBox API for location of events
 - [ ] Upvoting and downvoting events
 - [ ] Allow users to comment on events
+- [ ] Let users invite other users to invites
+- [ ] Let users indicate whether they are interested in an event or going to it
 - [ ] Group events by category/organization
 - [ ] Only allow admins to approve events and remove inappropriate content
 - [ ] Optimize for mobile devices and/or make a mobile app
