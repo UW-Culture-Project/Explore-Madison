@@ -35,13 +35,18 @@ If you're interested in joining our team regardless of your level of experience,
 - [x] Create show page so users can see details of a particular event
 - [x] About page
 - [x] Create landing page
-- [x] Allow users to write HTML in descriptions while ommiting script tags
-- [x] Add authentication
+- [x] Allow users to write HTML in descriptions while omitting script tags
+- [x] Add authentication and middleware
+- [ ] Allow users to create their own profile and save events
+- [ ] Notifications
+- [ ] Update and destroy
 - [ ] Contact page
 - [ ] Allow users to choose the time of their event
+- [ ] Allow users to upload photos for their events rather than using a URL
 - [ ] Implement MapBox API for location of events
 - [ ] Upvoting and downvoting events
 - [ ] Allow users to comment on events
 - [ ] Group events by category/organization
-- [ ] Only allow admins to approve events and remove comments
+- [ ] Only allow admins to approve events and remove inappropriate content
+- [ ] Optimize for mobile devices and/or make a mobile app
 - [ ] Deploy!
