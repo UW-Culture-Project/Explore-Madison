@@ -24,31 +24,31 @@
   <div class="container my-5">
     <div class="row">
       <div class="col-lg-6 offset-lg-3">
-        <h1 class="text-center font-italic">Suggest A New Event</h1>
+        <h1 class="text-center font-italic">Share A New Event</h1>
         <form id="suggestEventForm" action="/events" method="POST" class="my-4" autocomplete="off">
           <div class="form-group">
             <label for="eventName">Name</label>
-            <input type="text" class="form-control" id="eventName" name="event[name]">
+            <input type="text" class="form-control" id="eventName" name="event[name]" placeholder="Study Session">
           </div>
           <div class="form-group">
             <label for="eventImage">Image</label>
-            <input type="text" class="form-control" id="eventImage" name="event[image]">
+            <input type="text" class="form-control" id="eventImage" name="event[image]" placeholder="https://dou0x1vlhajjl.cloudfront.net/wp-content/themes/uw-theme-child-cs/dist/images/fb-sm-card.jpg">
           </div>
           <div class="form-group">
             <label for="eventLocation">Location</label>
-            <input type="text" class="form-control" id="eventLocation" name="event[location]">
+            <input type="text" class="form-control" id="eventLocation" name="event[location]" placeholder="1210 W Dayton St, Madison, WI 53706">
           </div>
           <div class="form-group">
             <label for="eventStartDate">Start date</label>
-            <input type="text" class="form-control" id="eventStartDate" name="event[startDate]">
+            <input type="text" class="form-control" id="eventStartDate" name="event[startDate]" placeholder="1/1/2020">
           </div>
           <div class="form-group">
             <label for="eventEndDate">End date</label>
-            <input type="text" class="form-control" id="eventEndDate" name="event[endDate]">
+            <input type="text" class="form-control" id="eventEndDate" name="event[endDate]" placeholder="1/1/2020">
           </div>
           <div class="form-group">
             <label for="eventDescription">Description</label>
-            <textarea name="event[description]" class="form-control" id="eventDescription"></textarea>
+            <textarea name="event[description]" class="form-control" id="eventDescription" placeholder="We will be studying for the CS 577 final in the first lab! Food will be provided! :)"></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </form>
