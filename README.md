@@ -1,5 +1,5 @@
 # ***Explore Madison!***
-### Created by *Coding for Good* members: Kenny Mui, Harry Le, Monica Schmit, and David Wang
+### Created by *Coding for Good* members: Kenny Mui, Harry Le, Monica Schmidt, and David Wang
 
 Are you missing out on fun events at UW-Madison?
 
