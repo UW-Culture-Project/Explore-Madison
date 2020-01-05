@@ -37,6 +37,8 @@ If you're interested in joining our team regardless of your level of experience,
 - [x] Create landing page
 - [x] Allow users to write HTML in descriptions while omitting script tags
 - [x] Add authentication and middleware
+- [x] Refactor routes
+- [x] Associate events with users
 - [ ] Allow users to create their own profile and save events
 - [ ] Notifications
 - [ ] Update and destroy
