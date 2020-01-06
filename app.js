@@ -42,8 +42,8 @@ app.use(function(req, res, next){
 });
 
 // Use route files
-app.use(indexRoutes);
-app.use(eventRoutes);
+app.use("/", indexRoutes);
+app.use("/events", eventRoutes);
 
 // Starts server at port 3000
 app.listen(3000, function() {

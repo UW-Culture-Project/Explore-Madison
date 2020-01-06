@@ -1,13 +1,37 @@
 .navbar, .navbar-brand {
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .navbar-expand-lg .navbar-nav .nav-link {
   padding: 0;
-  margin-left: 25px;
+  margin: auto 10px;
 }
 
-a.nav-link {
-  padding: 0;
+.navbar-image {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.dropdown-menu {
+  left: auto;
+  right: 0;
+  width: 200px;
+}
+
+.dropdown-menu p {
+  padding: 0 20px;
   margin: 0;
+}
+
+.navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+  color: black;
+  margin: 0;
+  padding: 3px 20px;
+  margin: 5px auto;
+}
+
+.navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link:hover {
+  background: #0366D6;
+  color: white;
 }

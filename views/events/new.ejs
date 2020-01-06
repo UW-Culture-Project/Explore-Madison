@@ -1,54 +1,43 @@
-<!doctype html>
-<html lang="en">
+<%- include("../partials/header") %>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@4.3.1/main.css">
-  <link rel="stylesheet" href="https://unpkg.com/@fullcalendar/list@4.3.0/main.min.css">
-
-  <link rel="stylesheet" href="/stylesheets/app.css">
-  <link rel="stylesheet" href="https://unpkg.com/js-datepicker/dist/datepicker.min.css">
-
-  <script src="https://kit.fontawesome.com/92992f5a3f.js" crossorigin="anonymous"></script>
-
-  <link rel="icon" type="image/gif/png/jpg" href="../images/TitleIcon.jpg">
-  <title>Explore Madison!</title>
-</head>
-<body>
   <div class="container my-5">
+    <a href="/events">
+      <i class="fas fa-long-arrow-alt-left mr-2"></i>
+      Back to events
+    </a>
     <div class="row">
       <div class="col-lg-6 offset-lg-3">
-        <h1 class="text-center font-italic">Share A New Event</h1>
+        <h1 class="text-center font-italic">Share a new event</h1>
         <form id="suggestEventForm" action="/events" method="POST" class="my-4" autocomplete="off">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="eventStartDate">Start date / time</label>
+                <input type="text" class="form-control" id="eventStartDate" name="event[startDate]">
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="eventEndDate">End date / time</label>
+                <input type="text" class="form-control" id="eventEndDate" name="event[endDate]">
+              </div>
+            </div>
+          </div>
           <div class="form-group">
             <label for="eventName">Name</label>
-            <input type="text" class="form-control" id="eventName" name="event[name]" placeholder="Study Session">
+            <input type="text" class="form-control" id="eventName" name="event[name]">
           </div>
           <div class="form-group">
             <label for="eventImage">Image</label>
-            <input type="text" class="form-control" id="eventImage" name="event[image]" placeholder="https://dou0x1vlhajjl.cloudfront.net/wp-content/themes/uw-theme-child-cs/dist/images/fb-sm-card.jpg">
+            <input type="text" class="form-control" id="eventImage" name="event[image]">
           </div>
           <div class="form-group">
             <label for="eventLocation">Location</label>
-            <input type="text" class="form-control" id="eventLocation" name="event[location]" placeholder="1210 W Dayton St, Madison, WI 53706">
-          </div>
-          <div class="form-group">
-            <label for="eventStartDate">Start date</label>
-            <input type="text" class="form-control" id="eventStartDate" name="event[startDate]" placeholder="1/1/2020">
-          </div>
-          <div class="form-group">
-            <label for="eventEndDate">End date</label>
-            <input type="text" class="form-control" id="eventEndDate" name="event[endDate]" placeholder="1/1/2020">
+            <input type="text" class="form-control" id="eventLocation" name="event[location]">
           </div>
           <div class="form-group">
             <label for="eventDescription">Description</label>
-            <textarea name="event[description]" class="form-control" id="eventDescription" placeholder="We will be studying for the CS 577 final in the first lab! Food will be provided! :)"></textarea>
+            <textarea name="event[description]" class="form-control" id="eventDescription" rows="5"></textarea>
           </div>
           <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </form>
@@ -57,73 +46,22 @@
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="/jquery/jquery.js"></script>
-  <script src="https://unpkg.com/js-datepicker"></script>
   <script>
     $(document).ready(function () {
-      var startDateLocal;
-      var endDateLocal;
-      var pickStartDate = datepicker('#eventStartDate',
-        {
-          startDate: new Date(),
-          showAllDates: true ,
-          id: 1,
-          onSelect: (instance, date) => {
-            // console.log(date.toLocaleDateString());
-          },
-          formatter: (input, date, instance) => {
-            const value = date.toLocaleDateString();
-            // const value = date.toLocalTime();
-            input.value = value;
-            // startDateLocal =
-          }
-        });
-      var pickEndDate = datepicker('#eventEndDate',
-        {
-          id: 1,
-          onSelect: (instance, date) => {
-            // console.log(date.toLocaleDateString());
-          },
-          formatter: (input, date, instance) => {
-            const value = date.toLocaleDateString();
-            // const value = date.toLocalTime();
-            input.value = value;
-          }
-        });
-
-      // var startComponents = $('#eventStartDate').val().split('/');
-      // var startDateObj = new Date(startComponents[2], startComponents[0] - 1, startComponents[1]);
-      // var endComponents = $('#eventEndDate').val().split('/');
-      // var endDateObj = new Date(endComponents[2], endComponents[0] - 1, endComponents[1]);
-
-      // $("#suggestEventForm").submit(function(e) {
-      //   e.preventDefault(); //prevent default action
-      //   var dataObject = {
-      //     name: $(this).children('#eventName').val(),
-      //     image: $(this).children('#eventImage').val(),
-      //     description: $(this).children('#eventDescription').val(),
-      //     location: $(this).children('#eventLocation').val(),
-      //     startDate: startDateObj,
-      //     endDate: endDateObj
-      //   };
-      //   $.ajax({
-      //     type: "POST",
-      //     url: "/events",
-      //     dataType: "json",
-      //     data: JSON.stringify(dataObject),
-      //     success: function(data) {
-      //       alert('Thanks for suggesting events! Our team will approve it if the content is appropriate.');
-      //     },
-      //     error: function(request, status, error) {
-      //       if (error) {
-      //         console.log(request);
-      //         console.log(status);
-      //         console.log(error);
-      //       }
-      //       alert('Sorry, error has happened. Please fill the form again later.')
-      //     }
-      //   });
-      // });
+      $("#eventStartDate").flatpickr({
+        altInput: true,
+        altFormat: "F j, Y at H:i",
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+      });
+      $("#eventEndDate").flatpickr({
+        altInput: true,
+        altFormat: "F j, Y at H:i",
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+        time_24hr: true
+      });
     });
   </script>
 

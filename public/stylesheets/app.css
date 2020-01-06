@@ -1,2 +1,7 @@
 @import url("components/navbar.css");
+@import url("components/form.css");
 @import url("events.css");
+
+body {
+  background: #F9F9F9;
+}

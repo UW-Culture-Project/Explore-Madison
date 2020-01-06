@@ -27,18 +27,18 @@ router.get("/contact", function (req, res) {
 
 // Show registration form
 router.get("/register", function (req, res) {
-    res.render("register");
+    res.render("index/register");
 });
 
 // Handle sign up logic
 router.post("/register", function (req, res) {
     var newUser = new User({
         username: req.body.username
-    }) // Takes the username from the form. Don't add password
+    }); // Takes the username from the form. Don't add password
     User.register(newUser, req.body.password, function (err, user) {
         if (err) {
             console.log(err);
-            return res.render("register");
+            return res.render("index/register");
         }
         // Provided by passportLocalMongoose
         passport.authenticate("local")(req, res, function () {
@@ -49,7 +49,7 @@ router.post("/register", function (req, res) {
 
 // Show login Form
 router.get("/login", function (req, res) {
-    res.render("login");
+    res.render("index/login");
 });
 
 // Handling login logic
