@@ -9,7 +9,7 @@ Never miss out on any opportunities to meet new people and try awesome things ag
 
 <h2> <strong> <u> Project details </U> </strong> </h2>
 
-- Spring 2019 - Fall 2019 Leader: Monica Schmit.
+- Spring 2019 - Fall 2019 Leader: Monica Schmidt.
 
     Monica helped us through the brainstorming process, gathered web development resources, and delegated tasks. She also set up bi-weekly meetings.
 
@@ -39,11 +39,11 @@ If you're interested in joining our team regardless of your level of experience,
 - [x] Add authentication and middleware
 - [x] Refactor routes
 - [x] Associate events with users
+- [x] Allow users to choose the time of their event
 - [ ] Allow users to create their own profile and save events
 - [ ] Notifications
 - [ ] Update and destroy
 - [ ] Contact page
-- [ ] Allow users to choose the time of their event
 - [ ] Allow users to upload photos for their events rather than using a URL
 - [ ] Implement MapBox API for location of events
 - [ ] Upvoting and downvoting events
