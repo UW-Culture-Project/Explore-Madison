@@ -5,3 +5,8 @@
 body {
   background: #F9F9F9;
 }
+
+/* Hides the start and end time */
+.fc-list-item-marker, .fc-list-item-time {
+  display: none;
+}

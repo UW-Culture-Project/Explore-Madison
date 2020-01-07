@@ -16,7 +16,9 @@ var eventSchema = new mongoose.Schema({
   startDate: Date,
   endDate: Date,
   numberPeopleInterested: {type: Number, default: 0},
-  numberPeopleGoing: {type: Number, default: 0}
+  numberPeopleGoing: {type: Number, default: 0},
+  upvotes: {type: Number, default: 0},
+  downvotes: {type: Number, default: 0}
 });
 
 var Event = mongoose.model("Event", eventSchema);
