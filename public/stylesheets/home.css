@@ -24,12 +24,18 @@ html, body {
 }
 
 #landing-header h1 {
-  color: rgba(230,140,132);
-  font-size: 50px;
-  font-weight: bold;
+  background: linear-gradient(to bottom, #a90013, #cd4d6c, #da8db5, #e2c9e6, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 60px;
+  font-weight: 400;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                 0px 8px 13px rgba(0,0,0,0.1),
+                 0px 18px 23px rgba(0,0,0,0.1);
 }
 
 /* Start of background slide show */
+
 .slideshow {
   height: 100%;
   left: 0;
