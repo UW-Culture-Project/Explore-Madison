@@ -14,9 +14,10 @@
     </div>
     <div class="col-md-9">
       <div class="thumbnail">
-        <img src="<%= event.image %>" class="img-fluid">
+        <img src="<%= event.image %>" class="img-fluid" />
         <div class="caption">
           <h4><%= event.name %></h4>
+          <h4>Votes: <%= event.upvotes %></h4>
           <!-- There is a dash so it users can enter HTML  -->
           <p><%- event.description %></p>
         </div>

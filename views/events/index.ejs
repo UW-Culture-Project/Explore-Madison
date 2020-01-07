@@ -22,6 +22,10 @@
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
 
+      function compare(event1, event2) {
+
+      }
+
       var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: [ 'list' ],
         timeZone: 'local',
@@ -44,6 +48,14 @@
         eventTimeFormat: {
           hour: '2-digit',
           minute: '2-digit'
+        },
+        eventOrder: "-upvotes",
+        eventRender: function(info) {
+          var upvotes = info.event.extendedProps.upvotes;
+          var element = info.el;
+          
+          var add = '<td class="calendar-upvotes">' + '<i class="fas fa-long-arrow-alt-up mr-1"></i>' + upvotes + '</td>';
+          element.innerHTML += add;
         }
       });
 
@@ -54,7 +66,11 @@
           title: event.name,
           url: "/events/" + event._id,
           start: event.startDate,
-          end: event.endDate
+          end: event.endDate,
+          extendedProps: {
+            upvotes: event.upvotes,
+            downvotes: event.downvotes
+          },
         };
         calendar.addEvent(newEvent);
       });
