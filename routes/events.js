@@ -32,8 +32,19 @@ router.post("/", isLoggedIn, function (req, res) {
 
     // Sanitize the event so no Script tags can be run
     req.body.event.body = req.sanitize(req.body.event.body);
-    console.log(req.body.event);
-    Event.create(req.body.event, function (err, event) {
+    var name = req.body.event.name;
+    var image = req.body.event.image;
+    var desc = req.body.event.description;
+    var author = {
+        id: req.user._id,
+        username: req.user.username
+    };
+    var location = req.body.event.location;
+    var startDate = req.body.event.startDate;
+    var endDate = req.body.event.endDate;
+    var newEvent = {name: name, image: image, description: desc, author: author, location: location, startDate: startDate, endDate: endDate};
+    console.log(newEvent);
+    Event.create(newEvent, function (err, event) {
         if (err) {
             res.redirect("/events/new");
         } else {
