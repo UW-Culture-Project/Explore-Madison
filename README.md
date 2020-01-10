@@ -47,6 +47,7 @@ If you're interested in joining our team regardless of your level of experience,
 - [ ] Update and destroy events
 - [ ] Authentication with email
 - [ ] Contact page
+- [ ] Search for events
 - [ ] Allow users to upload photos for their events rather than using a URL
 - [ ] Implement MapBox API for location of events
 - [ ] Allow users to comment on events
