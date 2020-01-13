@@ -1,0 +1,4 @@
+/* Hides the start and end time */
+.fc-list-item-time {
+  display: none;
+}

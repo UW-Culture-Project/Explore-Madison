@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
@@ -6,7 +7,8 @@ html, body {
   background-color: #000;
 }
 
-.btn-group-lg .btn, .btn-lg {
+.btn-group-lg .btn,
+.btn-lg {
   font-size: 16px;
 }
 
@@ -24,14 +26,20 @@ html, body {
 }
 
 #landing-header h1 {
-  background: linear-gradient(to bottom, #a90013, #cd4d6c, #da8db5, #e2c9e6, #ffffff);
+  background: linear-gradient(
+    to bottom,
+    #a90013,
+    #cd4d6c,
+    #da8db5,
+    #e2c9e6,
+    #ffffff
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 60px;
   font-weight: 400;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-                 0px 8px 13px rgba(0,0,0,0.1),
-                 0px 18px 23px rgba(0,0,0,0.1);
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
+    0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 
 /* Start of background slide show */
@@ -64,7 +72,7 @@ html, body {
 }
 
 .slideshow li:nth-child(1) {
-  background-image: url(../images/MadisonNight.jpg)
+  background-image: url(../images/MadisonNight.jpg);
 }
 .slideshow li:nth-child(2) {
   background-image: url(../images/BascomHall-UWMadison.jpg);
@@ -84,7 +92,8 @@ html, body {
 }
 
 @keyframes imageAnimation {
-  0%, 40% {
+  0%,
+  40% {
     animation-timing-function: ease-in;
     opacity: 0;
     transform: scale(1);

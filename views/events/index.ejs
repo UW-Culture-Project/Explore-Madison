@@ -51,10 +51,10 @@
         },
         eventOrder: "-upvotes",
         eventRender: function(info) {
-          var upvotes = info.event.extendedProps.upvotes;
+          var votes = info.event.extendedProps.votes;
           var element = info.el;
           
-          var add = '<td class="calendar-upvotes">' + '<i class="fas fa-long-arrow-alt-up mr-1"></i>' + upvotes + '</td>';
+          var add = '<td class="calendar-votes">' + '<i class="fas fa-long-arrow-alt-up mr-1"></i>' + votes + '</td>';
           element.innerHTML += add;
         }
       });
@@ -68,8 +68,7 @@
           start: event.startDate,
           end: event.endDate,
           extendedProps: {
-            upvotes: event.upvotes,
-            downvotes: event.downvotes
+            votes: event.votes
           },
         };
         calendar.addEvent(newEvent);
