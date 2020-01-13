@@ -40,8 +40,9 @@ If you're interested in joining our team regardless of your level of experience,
 - [x] Refactor routes
 - [x] Associate events with users
 - [x] Allow users to choose the time of their event
-- [x] Upvote events
-- [ ] Show part of the event description on the home page
+- [x] Upvote/downvote events
+- [x] Render events by number of votes within a day
+- [x] Show part of the event description on the home page
 - [ ] Allow users to create their own profile and save events
 - [ ] Notifications
 - [ ] Update and destroy events
