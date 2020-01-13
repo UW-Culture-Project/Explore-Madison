@@ -11,6 +11,13 @@
   background-color: #eee;
 }
 
+.event-info-card button {
+  background: none;
+  border: none;
+  border: 0;
+  padding: 0;
+}
+
 .event-info-card .fas {
   font-size: 40px;
 }

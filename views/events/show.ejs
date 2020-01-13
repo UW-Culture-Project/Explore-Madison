@@ -24,18 +24,27 @@
             <div
               class="voting-area d-flex flex-column align-items-center text-end"
             >
-              <% if (event.upvoted) { %>
-              <i class="fas fa-sort-up blue"></i>
-              <% } else { %>
-              <i class="fas fa-sort-up"></i>
-              <% } %>
+              <form action="/events" method="POST" id="upvoteForm">
+                <button>
+                  <% if (event.upvoted) { %>
+                  <i class="fas fa-sort-up blue"></i>
+                  <% } else { %>
+                  <i class="fas fa-sort-up"></i>
+                  <% } %>
+                </button>
+              </form>
 
               <p class="votes"><%= event.votes %></p>
-              <% if (event.downvoted) { %>
-              <i class="fas fa-sort-down blue"></i>
-              <% } else { %>
-              <i class="fas fa-sort-down"></i>
-              <% } %>
+
+              <form action="/events" method="POST" id="downvoteForm">
+                <button>
+                  <% if (event.downvoted) { %>
+                  <i class="fas fa-sort-down blue"></i>
+                  <% } else { %>
+                  <i class="fas fa-sort-down"></i>
+                  <% } %>
+                </button>
+              </form>
             </div>
           </div>
           <div class="caption">
