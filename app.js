@@ -13,7 +13,12 @@ var express = require('express'),
   eventRoutes = require('./routes/events'),
   indexRoutes = require('./routes/index');
 
-mongoose.connect('mongodb://localhost/culture_project');
+mongoose.connect('mongodb://localhost/culture_project', {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+});
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public')); // __dirname is the directory that app.js is in

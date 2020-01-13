@@ -4,7 +4,9 @@ var mongoose = require('mongoose'),
 // Schema setup
 var UserSchema = new mongoose.Schema({
   username: String,
-  password: String
+  email: String,
+  password: String,
+  admin: { type: Boolean, default: false }
 });
 
 // Adds passportLocalMongoose methods to UserSchema

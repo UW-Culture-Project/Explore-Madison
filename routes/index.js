@@ -32,8 +32,9 @@ router.get('/register', function(req, res) {
 // Handle sign up logic
 router.post('/register', function(req, res) {
   var newUser = new User({
-    username: req.body.username
-  }); // Takes the username from the form. Don't add password
+    username: req.body.username,
+    email: req.body.email
+  }); // Takes the username and email from the form. Don't add password
   User.register(newUser, req.body.password, function(err, user) {
     if (err) {
       console.log(err);
