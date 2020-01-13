@@ -9,6 +9,7 @@ var express = require('express'),
   // Models
   Event = require('./models/event'),
   User = require('./models/user'),
+  Interaction = require('./models/interaction'),
   // Routes
   eventRoutes = require('./routes/events'),
   indexRoutes = require('./routes/index');
@@ -19,6 +20,7 @@ mongoose.connect('mongodb://localhost/culture_project', {
   useUnifiedTopology: true,
   useFindAndModify: false
 });
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public')); // __dirname is the directory that app.js is in
