@@ -51,11 +51,12 @@
         },
         eventOrder: "-upvotes",
         eventRender: function(info) {
+          var element = info.el.querySelector('.fc-list-item-title');
           var votes = info.event.extendedProps.votes;
-          var element = info.el;
           
-          var add = '<td class="calendar-votes">' + '<i class="fas fa-long-arrow-alt-up mr-1"></i>' + votes + '</td>';
+          var add = `<div class="calendar-event-vote"><div class="d-flex flex-column align-items-center"><i class="fas fas fa-sort-up"></i><p class="votes">${votes}</p><i class="fas fas fa-sort-down"></i></div></div>`;
           element.innerHTML += add;
+          // console.log(element);
         }
       });
 
@@ -68,6 +69,7 @@
           start: event.startDate,
           end: event.endDate,
           extendedProps: {
+            description: event.description,
             votes: event.votes
           },
         };

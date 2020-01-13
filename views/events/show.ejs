@@ -21,9 +21,7 @@
         <img src="<%= event.image %>" class="img-fluid img-thumbnail" />
         <div class="event-info-card">
           <div class="float-right">
-            <div
-              class="voting-area d-flex flex-column align-items-center text-end"
-            >
+            <div class="voting-area d-flex flex-column align-items-center">
               <form
                 action="/events/<%= event._id %>/upvote?_method=PUT"
                 method="POST"
@@ -31,7 +29,7 @@
               >
                 <button>
                   <% if (interaction && interaction.upvoted) { %>
-                  <i class="fas fa-sort-up blue"></i>
+                  <i class="fas fa-sort-up active"></i>
                   <% } else { %>
                   <i class="fas fa-sort-up"></i>
                   <% } %>
@@ -47,7 +45,7 @@
               >
                 <button>
                   <% if (interaction && interaction.downvoted) { %>
-                  <i class="fas fa-sort-down blue"></i>
+                  <i class="fas fa-sort-down active"></i>
                   <% } else { %>
                   <i class="fas fa-sort-down"></i>
                   <% } %>
