@@ -1,7 +1,8 @@
 var express = require('express'),
   router = express.Router(),
   // Models
-  Event = require('../models/event');
+  Event = require('../models/event'),
+  Interaction = require('../models/interaction');
 
 //==========================================================
 // Event Routes
@@ -48,40 +49,88 @@ router.get('/:id', function(req, res) {
     if (err) {
       console.log(err);
     } else {
-      res.render('events/show', {
-        event: event
-      });
+      if (req.isAuthenticated()) {
+        var data = {
+          // References to user and event.
+          user: { id: req.user._id },
+          event: { id: event._id }
+        };
+        Interaction.findOne(data, (err, interaction) => {
+          if (err) {
+            console.log(err);
+          } else {
+            res.render('events/show', {
+              event: event,
+              interaction: interaction
+            });
+          }
+        });
+      } else {
+        res.render('events/show', {
+          event: event
+        });
+      }
     }
   });
 });
 
 // UPVOTE ROUTE
-router.put('/:id/upvote', isLoggedIn, function(req, res) {
-  Event.findById(req.params.id, function(err, event) {
-    var updatedInfo = {};
+router.put('/:id/upvote', isLoggedIn, (req, res) => {
+  Event.findById(req.params.id, (err, event) => {
     if (err) {
       console.log(err);
     } else {
-      if (event.upvoted) {
-        // Already upvoted, now undo it.
-        updatedInfo.upvoted = false;
-        updatedInfo.votes = event.votes - 1;
-      } else if (event.downvoted) {
-        // Already downvoted, now flip to upvote, add 2 votes.
-        updatedInfo.upvoted = true;
-        updatedInfo.downvoted = false;
-        updatedInfo.votes = event.votes + 2;
-      } else {
-        // Neither upvoted or downvoted, now upvote, add 1 vote.
-        updatedInfo.upvoted = true;
-        updatedInfo.votes = event.votes + 1;
-      }
-
-      Event.findByIdAndUpdate(req.params.id, updatedInfo, function(err, event) {
+      var data = {
+        // References to user and event.
+        user: { id: req.user._id },
+        event: { id: event._id }
+      };
+      Interaction.findOne(data, (err, interaction) => {
         if (err) {
           console.log(err);
+        } else if (interaction) {
+          if (interaction.upvoted) {
+            // Already upvoted, now undo it.
+            interaction.upvoted = false;
+            event.votes -= 1;
+          } else if (interaction.downvoted) {
+            // Already downvoted, now flip to upvote, add 2 votes.
+            interaction.upvoted = true;
+            interaction.downvoted = false;
+            event.votes += 2;
+          } else {
+            // Neither upvoted or downvoted, now upvote, add 1 vote.
+            interaction.upvoted = true;
+            event.votes += 1;
+          }
+          interaction.save(err => {
+            if (err) {
+              console.log(err);
+            }
+          });
+          event.save(err => {
+            if (err) {
+              console.log(err);
+            } else {
+              res.redirect('/events/' + req.params.id);
+            }
+          });
         } else {
-          res.redirect('/events/' + req.params.id);
+          data.upvoted = true;
+          Interaction.create(data, err => {
+            if (err) {
+              console.log(err);
+            } else {
+              event.votes += 1;
+              event.save(err => {
+                if (err) {
+                  console.log(err);
+                } else {
+                  res.redirect('/events/' + req.params.id);
+                }
+              });
+            }
+          });
         }
       });
     }
@@ -89,32 +138,62 @@ router.put('/:id/upvote', isLoggedIn, function(req, res) {
 });
 
 // DOWNVOTE ROUTE
-router.put('/:id/downvote', isLoggedIn, function(req, res) {
-  Event.findById(req.params.id, function(err, event) {
+router.put('/:id/downvote', isLoggedIn, (req, res) => {
+  Event.findById(req.params.id, (err, event) => {
     if (err) {
       console.log(err);
     } else {
-      var updatedInfo = {};
-      if (event.downvoted) {
-        // Already downvoted, now undo it.
-        updatedInfo.downvoted = false;
-        updatedInfo.votes = event.votes + 1;
-      } else if (event.upvoted) {
-        // Already upvoted, now flip to downvote, subtract 2 votes.
-        updatedInfo.downvoted = true;
-        updatedInfo.upvoted = false;
-        updatedInfo.votes = event.votes - 2;
-      } else {
-        // Neither upvoted or downvoted, now downvote, subtract 1 vote.
-        updatedInfo.downvoted = true;
-        updatedInfo.votes = event.votes - 1;
-      }
-
-      Event.findByIdAndUpdate(req.params.id, updatedInfo, function(err, event) {
+      var data = {
+        // References to user and event.
+        user: { id: req.user._id },
+        event: { id: event._id }
+      };
+      Interaction.findOne(data, (err, interaction) => {
         if (err) {
           console.log(err);
+        } else if (interaction) {
+          if (interaction.downvoted) {
+            // Already downvoted, now undo it.
+            interaction.downvoted = false;
+            event.votes += 1;
+          } else if (interaction.upvoted) {
+            // Already upvoted, now flip to downvote, subtract 2 votes.
+            interaction.downvoted = true;
+            interaction.upvoted = false;
+            event.votes -= 2;
+          } else {
+            // Neither upvoted or downvoted, now downvote, subtract 1 vote.
+            interaction.downvoted = true;
+            event.votes -= 1;
+          }
+          interaction.save(err => {
+            if (err) {
+              console.log(err);
+            }
+          });
+          event.save(err => {
+            if (err) {
+              console.log(err);
+            } else {
+              res.redirect('/events/' + req.params.id);
+            }
+          });
         } else {
-          res.redirect('/events/' + req.params.id);
+          data.downvoted = true;
+          Interaction.create(data, err => {
+            if (err) {
+              console.log(err);
+            } else {
+              event.votes -= 1;
+              event.save(err => {
+                if (err) {
+                  console.log(err);
+                } else {
+                  res.redirect('/events/' + req.params.id);
+                }
+              });
+            }
+          });
         }
       });
     }

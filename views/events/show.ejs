@@ -30,7 +30,7 @@
                 id="upvoteForm"
               >
                 <button>
-                  <% if (event.upvoted) { %>
+                  <% if (interaction && interaction.upvoted) { %>
                   <i class="fas fa-sort-up blue"></i>
                   <% } else { %>
                   <i class="fas fa-sort-up"></i>
@@ -46,7 +46,7 @@
                 id="downvoteForm"
               >
                 <button>
-                  <% if (event.downvoted) { %>
+                  <% if (interaction && interaction.downvoted) { %>
                   <i class="fas fa-sort-down blue"></i>
                   <% } else { %>
                   <i class="fas fa-sort-down"></i>
