@@ -24,7 +24,11 @@
             <div
               class="voting-area d-flex flex-column align-items-center text-end"
             >
-              <form action="/events" method="POST" id="upvoteForm">
+              <form
+                action="/events/<%= event._id %>/upvote?_method=PUT"
+                method="POST"
+                id="upvoteForm"
+              >
                 <button>
                   <% if (event.upvoted) { %>
                   <i class="fas fa-sort-up blue"></i>
@@ -36,7 +40,11 @@
 
               <p class="votes"><%= event.votes %></p>
 
-              <form action="/events" method="POST" id="downvoteForm">
+              <form
+                action="/events/<%= event._id %>/downvote?_method=PUT"
+                method="POST"
+                id="downvoteForm"
+              >
                 <button>
                   <% if (event.downvoted) { %>
                   <i class="fas fa-sort-down blue"></i>

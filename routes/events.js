@@ -72,66 +72,66 @@ router.get('/:id', function(req, res) {
 
 // UPVOTE ROUTE
 router.put('/:id/upvote', isLoggedIn, function(req, res) {
-  var updatedInfo = {};
   Event.findById(req.params.id, function(err, event) {
+    var updatedInfo = {};
     if (err) {
       console.log(err);
     } else {
       if (event.upvoted) {
         // Already upvoted, now undo it.
         updatedInfo.upvoted = false;
-        updatedInfo.votes -= 1;
+        updatedInfo.votes = event.votes - 1;
       } else if (event.downvoted) {
         // Already downvoted, now flip to upvote, add 2 votes.
         updatedInfo.upvoted = true;
         updatedInfo.downvoted = false;
-        updatedInfo.votes += 2;
+        updatedInfo.votes = event.votes + 2;
       } else {
         // Neither upvoted or downvoted, now upvote, add 1 vote.
         updatedInfo.upvoted = true;
-        updatedInfo.votes += 1;
+        updatedInfo.votes = event.votes + 1;
       }
-    }
-  });
 
-  Event.findByIdAndUpdate(req.params.id, updatedInfo, function(err, event) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect('/events/' + req.params.id);
+      Event.findByIdAndUpdate(req.params.id, updatedInfo, function(err, event) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.redirect('/events/' + req.params.id);
+        }
+      });
     }
   });
 });
 
 // DOWNVOTE ROUTE
 router.put('/:id/downvote', isLoggedIn, function(req, res) {
-  var updatedInfo = {};
   Event.findById(req.params.id, function(err, event) {
     if (err) {
       console.log(err);
     } else {
+      var updatedInfo = {};
       if (event.downvoted) {
         // Already downvoted, now undo it.
         updatedInfo.downvoted = false;
-        updatedInfo.votes += 1;
-      } else if (event.downvoted) {
+        updatedInfo.votes = event.votes + 1;
+      } else if (event.upvoted) {
         // Already upvoted, now flip to downvote, subtract 2 votes.
         updatedInfo.downvoted = true;
         updatedInfo.upvoted = false;
-        updatedInfo.votes -= 2;
+        updatedInfo.votes = event.votes - 2;
       } else {
         // Neither upvoted or downvoted, now downvote, subtract 1 vote.
         updatedInfo.downvoted = true;
-        updatedInfo.votes -= 1;
+        updatedInfo.votes = event.votes - 1;
       }
-    }
-  });
 
-  Event.findByIdAndUpdate(req.params.id, updatedInfo, function(err, event) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.redirect('/events/' + req.params.id);
+      Event.findByIdAndUpdate(req.params.id, updatedInfo, function(err, event) {
+        if (err) {
+          console.log(err);
+        } else {
+          res.redirect('/events/' + req.params.id);
+        }
+      });
     }
   });
 });
