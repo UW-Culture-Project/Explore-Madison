@@ -22,8 +22,8 @@
   font-size: 40px;
 }
 
-.event-info-card .fas.blue {
-  color: blue;
+.event-info-card .fas.active {
+  color: red;
 }
 
 .event-info-card .fas:hover {
@@ -33,5 +33,15 @@
 .event-info-card .votes {
   margin: -15px auto;
   font-size: 20px;
+  font-weight: bold;
+}
+
+.calendar-event-vote {
+  float: right;
+}
+
+.calendar-event-vote .votes {
+  margin: -5px auto;
+  font-size: 15px;
   font-weight: bold;
 }

@@ -20,12 +20,17 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var calendarEl = document.getElementById('calendar');
-
-      function compare(event1, event2) {
-
+      function truncateString(str, num) {
+        // If the length of str is less than or equal to num
+        // just return str--don't truncate it.
+        if (str.length <= num) {
+          return str
+        }
+        // Return str truncated with '...' concatenated to the end of str.
+        return str.slice(0, num) + '...'
       }
 
+      var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
         plugins: [ 'list' ],
         timeZone: 'local',
@@ -49,13 +54,23 @@
           hour: '2-digit',
           minute: '2-digit'
         },
-        eventOrder: "-upvotes",
+        eventOrder: "-votes",
         eventRender: function(info) {
-          var votes = info.event.extendedProps.votes;
           var element = info.el;
-          
-          var add = '<td class="calendar-votes">' + '<i class="fas fa-long-arrow-alt-up mr-1"></i>' + votes + '</td>';
-          element.innerHTML += add;
+
+          // Retrieve description and votes.
+          var description = info.event.extendedProps.description;
+          var desc = truncateString(description, 100); // Truncate description.
+          var votes = info.event.extendedProps.votes;
+
+          // Add to DOM.
+          var addDesc = `<td class="calendar-event-description">${desc}</td>`;
+          element.innerHTML += addDesc;
+
+          // Add votes inside description element.
+          var element = element.querySelector('.calendar-event-description');
+          var addVotes = `<div class="calendar-event-vote"><div class="d-flex flex-column align-items-center"><i class="fas fas fa-sort-up"></i><p class="votes">${votes}</p><i class="fas fas fa-sort-down"></i></div></div>`;
+          element.innerHTML += addVotes;
         }
       });
 
@@ -68,6 +83,7 @@
           start: event.startDate,
           end: event.endDate,
           extendedProps: {
+            description: event.description,
             votes: event.votes
           },
         };
