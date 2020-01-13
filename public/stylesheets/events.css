@@ -1,0 +1,37 @@
+/* Hides the start and end time */
+.fc-list-item-time {
+  display: none;
+}
+
+.event-info-card {
+  margin: 10px auto;
+  padding: 20px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background-color: #eee;
+}
+
+.event-info-card button {
+  background: none;
+  border: none;
+  border: 0;
+  padding: 0;
+}
+
+.event-info-card .fas {
+  font-size: 40px;
+}
+
+.event-info-card .fas.blue {
+  color: blue;
+}
+
+.event-info-card .fas:hover {
+  cursor: pointer;
+}
+
+.event-info-card .votes {
+  margin: -15px auto;
+  font-size: 20px;
+  font-weight: bold;
+}

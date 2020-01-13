@@ -1,4 +1,5 @@
-.navbar, .navbar-brand {
+.navbar,
+.navbar-brand {
   font-size: 20px;
 }
 
@@ -24,14 +25,16 @@
   margin: 0;
 }
 
-.navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link {
+.navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show > .nav-link {
   color: black;
   margin: 0;
   padding: 3px 20px;
   margin: 5px auto;
 }
 
-.navbar-nav .nav-link.show, .navbar-dark .navbar-nav .show>.nav-link:hover {
-  background: #0366D6;
+.navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show > .nav-link:hover {
+  background: #0366d6;
   color: white;
 }

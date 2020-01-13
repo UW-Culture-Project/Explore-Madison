@@ -1,19 +1,19 @@
-.brand {
-    height: 150px;
-    width: 80%;
+#about .brand {
+  height: 150px;
+  width: 80%;
 }
 
-.card-img-top {
-    width: 250px;
-    height: 250px;
+#about .card-img-top {
+  width: 250px;
+  height: 250px;
 }
 
-.message {
-    font-weight: bold;
-    /* font-style: italic; */
-    font-size: 22px;
+#about .message {
+  font-weight: bold;
+  /* font-style: italic; */
+  font-size: 22px;
 }
 
-.card-text {
-    font-style: italic;
+#about .card-text {
+  font-style: italic;
 }

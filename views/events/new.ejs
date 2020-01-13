@@ -1,70 +1,111 @@
 <%- include("../partials/header") %>
 
-  <div class="container my-5">
-    <a href="/events">
-      <i class="fas fa-long-arrow-alt-left mr-2"></i>
-      Back to events
-    </a>
-    <div class="row">
-      <div class="col-lg-6 offset-lg-3">
-        <h1 class="text-center font-italic">Share a new event</h1>
-        <form id="suggestEventForm" action="/events" method="POST" class="my-4" autocomplete="off">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label for="eventStartDate">Start date / time</label>
-                <input type="text" class="form-control" id="eventStartDate" name="event[startDate]" required>
-              </div>
+<div class="container my-5">
+  <a href="/events">
+    <i class="fas fa-long-arrow-alt-left mr-2"></i>
+    Back to events
+  </a>
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <h1 class="text-center font-italic">Share a new event</h1>
+      <form
+        id="suggestEventForm"
+        action="/events"
+        method="POST"
+        class="my-4"
+        autocomplete="off"
+      >
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="eventStartDate">Start date / time</label>
+              <input
+                type="text"
+                class="form-control"
+                id="eventStartDate"
+                name="event[startDate]"
+                required
+              />
             </div>
-            <div class="col-lg-6">
-              <div class="form-group">
-                <label for="eventEndDate">End date / time</label>
-                <input type="text" class="form-control" id="eventEndDate" name="event[endDate]" required>
-              </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-group">
+              <label for="eventEndDate">End date / time</label>
+              <input
+                type="text"
+                class="form-control"
+                id="eventEndDate"
+                name="event[endDate]"
+                required
+              />
             </div>
           </div>
-          <div class="form-group">
-            <label for="eventName">Name</label>
-            <input type="text" class="form-control" id="eventName" name="event[name]" required>
-          </div>
-          <div class="form-group">
-            <label for="eventImage">Image</label>
-            <input type="text" class="form-control" id="eventImage" name="event[image]">
-          </div>
-          <div class="form-group">
-            <label for="eventLocation">Location</label>
-            <input type="text" class="form-control" id="eventLocation" name="event[location]" required>
-          </div>
-          <div class="form-group">
-            <label for="eventDescription">Description</label>
-            <textarea name="event[description]" class="form-control" id="eventDescription" rows="5" required></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Submit</button>
-        </form>
-      </div>
+        </div>
+        <div class="form-group">
+          <label for="eventName">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="eventName"
+            name="event[name]"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="eventImage">Image</label>
+          <input
+            type="text"
+            class="form-control"
+            id="eventImage"
+            name="event[image]"
+          />
+        </div>
+        <div class="form-group">
+          <label for="eventLocation">Location</label>
+          <input
+            type="text"
+            class="form-control"
+            id="eventLocation"
+            name="event[location]"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="eventDescription">Description</label>
+          <textarea
+            name="event[description]"
+            class="form-control"
+            id="eventDescription"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
     </div>
   </div>
+</div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script>
-    $(document).ready(function () {
-      $("#eventStartDate").flatpickr({
-        altInput: true,
-        altFormat: "F j, Y at H:i",
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        time_24hr: false,
-        defaultDate: "today"
-      });
-      $("#eventEndDate").flatpickr({
-        altInput: true,
-        altFormat: "F j, Y at H:i",
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        time_24hr: false,
-        defaultDate: "today"
-      });
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#eventStartDate').flatpickr({
+      altInput: true,
+      altFormat: 'F j, Y at H:i',
+      enableTime: true,
+      dateFormat: 'Y-m-d H:i',
+      time_24hr: false,
+      defaultDate: 'today'
     });
-  </script>
+    $('#eventEndDate').flatpickr({
+      altInput: true,
+      altFormat: 'F j, Y at H:i',
+      enableTime: true,
+      dateFormat: 'Y-m-d H:i',
+      time_24hr: false,
+      defaultDate: 'today'
+    });
+  });
+</script>
 
 <%- include("../partials/footer") %>
