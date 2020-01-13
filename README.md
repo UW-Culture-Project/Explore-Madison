@@ -40,15 +40,16 @@ If you're interested in joining our team regardless of your level of experience,
 - [x] Refactor routes
 - [x] Associate events with users
 - [x] Allow users to choose the time of their event
+- [x] Upvote events
 - [ ] Show part of the event description on the home page
 - [ ] Allow users to create their own profile and save events
 - [ ] Notifications
 - [ ] Update and destroy events
 - [ ] Authentication with email
 - [ ] Contact page
+- [ ] Search for events
 - [ ] Allow users to upload photos for their events rather than using a URL
 - [ ] Implement MapBox API for location of events
-- [ ] Upvoting and downvoting events
 - [ ] Allow users to comment on events
 - [ ] Let users invite other users to events
 - [ ] Let users indicate whether they are interested in an event or going to it
