@@ -7,16 +7,16 @@ body {
   background-color: #000;
 }
 
-.btn-group-lg .btn,
+#home .btn-group-lg .btn,
 .btn-lg {
   font-size: 16px;
 }
 
-#logo {
+#home #logo {
   font-size: 40px;
 }
 
-#landing-header {
+#home #landing-header {
   margin-top: 40vh;
   position: relative;
   text-align: center;
@@ -25,7 +25,7 @@ body {
   padding: 10px;
 }
 
-#landing-header h1 {
+#home #landing-header h1 {
   background: linear-gradient(
     to bottom,
     #a90013,
@@ -44,7 +44,7 @@ body {
 
 /* Start of background slide show */
 
-.slideshow {
+#home .slideshow {
   height: 100%;
   left: 0;
   list-style: none;
@@ -56,7 +56,7 @@ body {
   z-index: 0;
 }
 
-.slideshow li {
+#home .slideshow li {
   animation: imageAnimation 50s linear 2.5s infinite;
   background-position: 50% 50%;
   background-repeat: no-repeat;
@@ -71,22 +71,22 @@ body {
   z-index: 0;
 }
 
-.slideshow li:nth-child(1) {
+#home .slideshow li:nth-child(1) {
   background-image: url(../images/MadisonNight.jpg);
 }
-.slideshow li:nth-child(2) {
+#home .slideshow li:nth-child(2) {
   background-image: url(../images/BascomHall-UWMadison.jpg);
   animation-delay: 10s;
 }
-.slideshow li:nth-child(3) {
+#home .slideshow li:nth-child(3) {
   background-image: url(../images/MadisonSkyline.jpg);
   animation-delay: 20s;
 }
-.slideshow li:nth-child(4) {
+#home .slideshow li:nth-child(4) {
   background-image: url(../images/Terrace_night.jpg);
   animation-delay: 30s;
 }
-.slideshow li:nth-child(5) {
+#home .slideshow li:nth-child(5) {
   background-image: url(../images/CampRandall.jpg);
   animation-delay: 40s;
 }
