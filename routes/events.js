@@ -66,8 +66,10 @@ router.get('/:id', function(req, res) {
           }
         });
       } else {
+        var interaction = false;
         res.render('events/show', {
-          event: event
+          event: event,
+          interaction: interaction
         });
       }
     }
