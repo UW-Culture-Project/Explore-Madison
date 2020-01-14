@@ -43,10 +43,10 @@ If you're interested in joining our team regardless of your level of experience,
 - [x] Upvote/downvote events
 - [x] Render events by number of votes within a day
 - [x] Show part of the event description on the home page
+- [x] Authentication with email
 - [ ] Allow users to create their own profile and save events
 - [ ] Notifications
 - [ ] Update and destroy events
-- [ ] Authentication with email
 - [ ] Contact page
 - [ ] Search for events
 - [ ] Allow users to upload photos for their events rather than using a URL
