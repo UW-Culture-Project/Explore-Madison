@@ -51,15 +51,6 @@
             required
           />
         </div>
-        <!-- <div class="form-group">
-          <label for="eventImage">Image</label>
-          <input
-            type="text"
-            class="form-control"
-            id="eventImage"
-            name="event[image]"
-          />
-        </div> -->
         <div class="d-flex flex-row">
           <div class="form-group">
             <button type="button" id="pseudoButton" class="btn btn-outline-primary" id="onScreenImgButton" onclick="clickImgButton()">Image</button>
@@ -71,6 +62,7 @@
           accept="image/*"
           />
         </div>
+        <img id="preview" src="#">
         <div class="form-group">
           <label for="eventLocation">Location</label>
           <input
@@ -118,9 +110,27 @@
     });
   });
 
+  // Click hidden image button
   function clickImgButton() {
     $('#eventImage').click();
   }
+
+  // Image preview
+  $('#preview').addClass("beforeImgSelected"); // Hide no img selected if there is no img 
+  function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#preview').attr('src', e.target.result);
+      $('#preview').removeClass("beforeImgSelected"); 
+      $('#preview').addClass("afterImgSelected");
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+$("#eventImage").change(function() {
+  readURL(this);
+});
 </script>
 
 <%- include("../partials/footer") %>

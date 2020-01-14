@@ -5,3 +5,14 @@
 #pseudoButton {
     width: 8rem;
 }
+
+.beforeImgSelected {
+    visibility: hidden;
+    display: block;
+    height: 0px;
+}
+
+.afterImgSelected {
+    height: 10rem;
+    margin: 1rem 0;
+}
