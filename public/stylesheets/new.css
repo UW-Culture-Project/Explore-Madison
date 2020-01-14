@@ -1,3 +1,7 @@
 #eventImage {
     visibility: hidden;
 }
+
+#pseudoButton {
+    width: 8rem;
+}
