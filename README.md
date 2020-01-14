@@ -44,12 +44,12 @@ If you're interested in joining our team regardless of your level of experience,
 - [x] Render events by number of votes within a day
 - [x] Show part of the event description on the home page
 - [x] Authentication with email
+- [x] Allow users to upload photos for their events rather than using a URL and see a preview of their image
 - [ ] Allow users to create their own profile and save events
 - [ ] Notifications
 - [ ] Update and destroy events
 - [ ] Contact page
 - [ ] Search for events
-- [ ] Allow users to upload photos for their events rather than using a URL
 - [ ] Implement MapBox API for location of events
 - [ ] Allow users to comment on events
 - [ ] Let users invite other users to events
