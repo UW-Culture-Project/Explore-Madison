@@ -3,8 +3,9 @@ var mongoose = require('mongoose');
 // Schema setup
 var eventSchema = new mongoose.Schema({
   name: String,
-  image: { img: 
-    { data: Buffer, contentType: String }
+  image: { 
+    data: Buffer,
+    contentType: String 
   },
   description: String,
   author: {

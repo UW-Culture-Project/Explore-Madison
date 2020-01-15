@@ -30,10 +30,12 @@ router.get('/new', isLoggedIn, function(req, res) {
 router.post('/', isLoggedIn, function(req, res) {
   // Sanitize the event so no Script tags can be run
   req.body.event.description = req.sanitize(req.body.event.description);
+  console.log(req.body.event);
   req.body.event.author = {
     id: req.user._id,
     username: req.user.username
   };
+
   Event.create(req.body.event, function(err, event) {
     if (err) {
       res.redirect('/events/new');
