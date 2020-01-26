@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/monica22schmidt/Culture-Project.git"
+    "url": "git+https://github.com/klmui/Culture-Project.git"
   },
   "author": "CORGI",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/monica22schmidt/Culture-Project/issues"
+    "url": "https://github.com/klmui/Culture-Project/issues"
   },
-  "homepage": "https://github.com/monica22schmidt/Culture-Project#readme",
+  "homepage": "https://github.com/klmui/Culture-Project#readme",
   "dependencies": {
     "@fullcalendar/core": "^4.3.1",
     "@fullcalendar/daygrid": "^4.3.0",
@@ -29,6 +29,7 @@
     "js-datepicker": "^5.2.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.7.7",
+    "multer": "^1.4.2",
     "nodemon": "^1.19.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",

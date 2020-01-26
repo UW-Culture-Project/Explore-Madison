@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 // Schema setup
 var eventSchema = new mongoose.Schema({
   name: String,
-  image: { type: String, default: 'https://via.placeholder.com/150' },
+  imagePath: String,
   description: String,
   author: {
     id: {

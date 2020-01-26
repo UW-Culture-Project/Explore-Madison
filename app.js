@@ -7,9 +7,7 @@ var express = require('express'),
   passport = require('passport'),
   LocalStrategy = require('passport-local'),
   // Models
-  Event = require('./models/event'),
   User = require('./models/user'),
-  Interaction = require('./models/interaction'),
   // Routes
   eventRoutes = require('./routes/events'),
   indexRoutes = require('./routes/index');
