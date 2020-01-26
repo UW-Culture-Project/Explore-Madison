@@ -1,8 +1,32 @@
 var express = require('express'),
   router = express.Router(),
+  multer = require("multer"),
+
   // Models
   Event = require('../models/event'),
   Interaction = require('../models/interaction');
+
+// Config Multer for storing images
+const MIME_TYPE_MAP = {
+  'image/png': 'png',
+  'image/jpeg': 'jpg',
+  'image/jpg': 'jpg'
+};
+const storage = multer.diskStorage({
+  destination: (req, res, cb) => {
+    const isValid = MIME_TYPE_MAP[file.mimetype];
+    let error = new Error("Invalid mime type");
+    if (isValid) {
+      error = null;
+    }
+    cb(error, "images"); // error is null, second is path relative to server js
+  },
+  filename: (req, file, cb) => {
+    const name = file.originalname.toLowerCase().split(' ').join('-'); // any whitespace will be a dash
+    const ext = MIME_TYPE_MAP[file.mimetype];
+    cb(null, name + '-' + Date.now() + '.' + ext); // no error, add filename
+  }
+});
 
 //==========================================================
 // Event Routes
@@ -27,7 +51,7 @@ router.get('/new', isLoggedIn, function(req, res) {
 });
 
 // CREATE ROUTE - Only create a new event if the user is logged in
-router.post('/', isLoggedIn, function(req, res) {
+router.post('/', isLoggedIn, multer({storage, storage}).single("image"), function(req, res) {
   // Sanitize the event so no Script tags can be run
   req.body.event.description = req.sanitize(req.body.event.description);
   console.log(req.body.event);
