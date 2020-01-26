@@ -7,22 +7,25 @@ var express = require('express'),
   Interaction = require('../models/interaction');
 
 // Config Multer for storing images
-// const MIME_TYPE_MAP = {
-//   'image/png': 'png',
-//   'image/jpeg': 'jpg',
-//   'image/jpg': 'jpg'
-// };
-var storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    // const isValid = MIME_TYPE_MAP[file.mimetype];
-    // let error = new Error("Invalid mime type");
-    // if (isValid) {
-    //   error = null;
-    // }
-    cb(null, "images"); 
+const MIME_TYPE_MAP = {
+  'image/png': 'png',
+  'image/jpeg': 'jpg',
+  'image/jpg': 'jpg'
+};
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const isValid = MIME_TYPE_MAP[file.mimetype];
+    let error = new Error("Invalid mime type");
+    if (isValid) {
+      error = null;
+    }
+    cb(error, "public/uploads"); // error is null, second is path relative to app js
   },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname + '-' + Date.now());
+  filename: (req, file, cb) => {
+    const name = file.originalname.toLowerCase().split(' ').join('-'); // any whitespace will be a dash
+    const ext = MIME_TYPE_MAP[file.mimetype];
+    cb(null, name + '-' + Date.now() + '.' + ext); // no error, add filename
   }
 });
 
@@ -66,9 +69,7 @@ router.post('/', isLoggedIn, multer({storage, storage}).single('image'), (req, r
     id: req.user._id,
     username: req.user.username
   };
-
-  req.body.event.imagePath = url + "/images/" + file.filename; 
-  console.log(req.body.event.imagePath);
+  req.body.event.imagePath = url + "/uploads/" + file.filename; 
 
   Event.create(req.body.event, function(err, event) {
     if (err) {
