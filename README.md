@@ -9,13 +9,13 @@ Never miss out on any opportunities to meet new people and try awesome things ag
 
 <h2> <strong> <u> Project details </U> </strong> </h2>
 
-- Spring 2019 - Fall 2019 Leader: Monica Schmidt.
-
-    Monica helped us through the brainstorming process, gathered web development resources, and delegated tasks. She also set up bi-weekly meetings.
-
 - Spring 2020 - Present Leaders: Kenneth Mui and Harry Le.
 
     Kenneth (Kenny) and Harry both helped the team kick off the project in the Fall of 2019. They will continue to mentor others throughout tasks, distribute new resources, and contribute to Explore Madison. In addition, they will lead bi-weekly meetings and weekly coding sessions. Their values include inclusivity and having fun!
+
+- Spring 2019 - Fall 2019 Leader: Monica Schmidt.
+
+    Monica helped us through the brainstorming process, gathered web development resources, and delegated tasks. She also set up bi-weekly meetings.
 
 If you're interested in joining our team regardless of your level of experience, please email me (Kenny) at klmui@wisc.edu. I will try to respond within 24 hours!
 
