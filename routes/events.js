@@ -1,30 +1,28 @@
 var express = require('express'),
-  router = express.Router(),
   multer = require("multer"),
+  router = express.Router(),
 
   // Models
   Event = require('../models/event'),
   Interaction = require('../models/interaction');
 
 // Config Multer for storing images
-const MIME_TYPE_MAP = {
-  'image/png': 'png',
-  'image/jpeg': 'jpg',
-  'image/jpg': 'jpg'
-};
-const storage = multer.diskStorage({
-  destination: (req, res, cb) => {
-    const isValid = MIME_TYPE_MAP[file.mimetype];
-    let error = new Error("Invalid mime type");
-    if (isValid) {
-      error = null;
-    }
-    cb(error, "images"); // error is null, second is path relative to server js
+// const MIME_TYPE_MAP = {
+//   'image/png': 'png',
+//   'image/jpeg': 'jpg',
+//   'image/jpg': 'jpg'
+// };
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    // const isValid = MIME_TYPE_MAP[file.mimetype];
+    // let error = new Error("Invalid mime type");
+    // if (isValid) {
+    //   error = null;
+    // }
+    cb(null, "images"); 
   },
-  filename: (req, file, cb) => {
-    const name = file.originalname.toLowerCase().split(' ').join('-'); // any whitespace will be a dash
-    const ext = MIME_TYPE_MAP[file.mimetype];
-    cb(null, name + '-' + Date.now() + '.' + ext); // no error, add filename
+  filename: function (req, file, cb) {
+    cb(null, file.originalname + '-' + Date.now());
   }
 });
 
@@ -51,14 +49,26 @@ router.get('/new', isLoggedIn, function(req, res) {
 });
 
 // CREATE ROUTE - Only create a new event if the user is logged in
-router.post('/', isLoggedIn, multer({storage, storage}).single("image"), function(req, res) {
+router.post('/', isLoggedIn, multer({storage, storage}).single('image'), (req, res, next) => {
+  const url = req.protocol + '://' + req.get("host"); // constructs url to server
+  console.log(req.file);
+  const file = req.file;
+  if (!file) {
+    const error = new Error('Please upload a file');
+    error.httpStatusCode = 400;
+    return next(error);
+  }
+
   // Sanitize the event so no Script tags can be run
   req.body.event.description = req.sanitize(req.body.event.description);
-  console.log(req.body.event);
+
   req.body.event.author = {
     id: req.user._id,
     username: req.user.username
   };
+
+  req.body.event.imagePath = url + "/images/" + file.filename; 
+  console.log(req.body.event.imagePath);
 
   Event.create(req.body.event, function(err, event) {
     if (err) {
