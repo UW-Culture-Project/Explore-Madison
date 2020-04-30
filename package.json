@@ -25,7 +25,7 @@
     "express-sanitizer": "^1.0.5",
     "express-session": "^1.17.0",
     "flatpickr": "^4.6.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "js-datepicker": "^5.2.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.7.7",
