@@ -21,7 +21,7 @@
     "@fullcalendar/daygrid": "^4.3.0",
     "body-parser": "^1.19.0",
     "ejs": "^3.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-sanitizer": "^1.0.5",
     "express-session": "^1.17.0",
     "flatpickr": "^4.6.3",
